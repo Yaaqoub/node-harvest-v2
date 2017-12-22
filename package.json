@@ -1,0 +1,34 @@
+{
+  "name": "harvest-v2",
+  "version": "1.0.0",
+  "description": "Harvest API v2 library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaaqoub/node-harvest-v2.git"
+  },
+  "keywords": [
+    "harvest",
+    "api",
+    "invoice",
+    "estimate",
+    "clients",
+    "businesses"
+  ],
+  "author": {
+    "name": "Yaaqoub Semlali, Chakib Bouabd",
+    "email": "semlali.yaaqoub@gmail.com, chakib.bouabd@gmail.com",
+    "url": "https://www.yaaqoubsemlali.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
+  },
+  "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
