@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require('./lib/harvest');
+module.exports = require('./src/harvest');

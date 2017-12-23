@@ -14,6 +14,7 @@ module.exports = class Request {
             'User-Agent': 'Harvest API'
         };
 
+
         let options = {
             url: 'https://api.harvestapp.com/api/v2/' + name,
             headers: thisHeaders

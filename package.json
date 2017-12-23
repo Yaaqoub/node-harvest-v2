@@ -4,7 +4,7 @@
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,9 @@
   "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
   "dependencies": {
     "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "debug": "^3.1.0",
+    "mocha": "^4.0.1"
   }
 }
