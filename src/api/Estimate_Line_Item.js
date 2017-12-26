@@ -16,11 +16,14 @@ module.exports = class Estimate_Line_Item {
         new Request(this.options, cb);
     }
 
-    /*update(id, params, cb) {
+    update(id, params, cb) {
+        if(!params.line_items[0].id)
+            return console.log('updating an Estimate Line Item requires an id');
+
         this.options.url = this.baseUri + '/' + id;
         this.options.method = 'PATCH';
         this.options.body = JSON.stringify(params);
 
         new Request(this.options, cb);
-    }*/
+    }
 }

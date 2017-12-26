@@ -10,4 +10,11 @@ describe('Estimate Line Item API', function() {
             done();
         });
     });
+
+    describe('Update an Estimate Line Item', function() {
+        it('should Update an Estimate Line Item', function(done) {
+            assert.equal(typeof harvest.estimateLineItem.update, 'function');
+            done();
+        });
+    });
 });
