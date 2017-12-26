@@ -9,7 +9,9 @@ module.exports = class Harvest {
 
         this.options = {
             url: '',
-            headers: this.headerAuth.header()
+            method: '',
+            headers: this.headerAuth.header(),
+            body: ''
         }
 
         fs.readdirSync(path.join(__dirname, 'api')).forEach(name => {

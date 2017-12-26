@@ -3,7 +3,8 @@ module.exports = class HeaderAuth {
         this.headers = {
             'Harvest-Account-ID': config.account_ID,
             'Authorization': 'Bearer ' + config.access_token,
-            'User-Agent': config.user_agent
+            'User-Agent': config.user_agent,
+            'Content-Type': 'application/json'
         };
     }
 
