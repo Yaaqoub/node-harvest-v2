@@ -6,7 +6,7 @@ let harvest = config_auth.harvest;
 describe('Request Test', function() {
     describe('Get All Estimates', function() {
         it('should return all Estimates', function(done) {
-            harvest.estimatesList();
+            harvest.estimates.list();
             done();
         });
     });

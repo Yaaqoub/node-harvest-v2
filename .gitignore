@@ -17,3 +17,6 @@ package-lock.json
 
 # Local ENV Variables for development
 .env
+
+#Test files
+test/me.js
