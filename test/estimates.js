@@ -32,4 +32,11 @@ describe('Estimates API', function() {
             done();
         });
     });
+
+    describe('Update an Estimate', function() {
+        it('should Update an Estimate', function(done) {
+            assert.equal(typeof harvest.estimates.update, 'function');
+            done();
+        });
+    });
 });
