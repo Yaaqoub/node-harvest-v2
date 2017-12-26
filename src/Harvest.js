@@ -2,7 +2,9 @@ let HeaderAuth = require('./authentication/HeaderAuth'),
     fs = require('fs'),
     path = require('path'),
     camelCase = require('lodash/camelCase'),
-    Estimates = require('./api/Estimates');
+    Estimates = require('./api/Estimates'),
+    Estimate_Messages = require('./api/Estimate_Messages'),
+    Estimate_Item_Categories = require('./api/Estimate_Item_Categories');
 
 module.exports = class Harvest {
     constructor(config) {
@@ -14,6 +16,8 @@ module.exports = class Harvest {
         }
 
         this.estimates = new Estimates(this.options);
+        this.estimateMessages = new Estimate_Messages(this.options);
+        this.estimateItemCategories = new Estimate_Item_Categories(this.options);
     }
 
 
