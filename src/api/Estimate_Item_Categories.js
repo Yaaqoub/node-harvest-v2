@@ -8,13 +8,9 @@ module.exports = class Estimate_Item_Categories {
         this.options = options;
     }
 
-    list() {
+    list(cb) {
         this.options.url = this.baseUri;
 
-        new Request(this.options, function results(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                //console.log(body);
-            }
-        });
+        new Request(this.options, cb);
     }
 }

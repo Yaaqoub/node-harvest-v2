@@ -1,9 +1,9 @@
 let Request = require('../Request');
 
-module.exports = class Estimates {
+module.exports = class Invoices {
 
     constructor(options) {
-        this.name = 'estimates';
+        this.name = 'invoices';
         this.baseUri = 'https://api.harvestapp.com/v2/' + this.name;
         this.options = options;
     }

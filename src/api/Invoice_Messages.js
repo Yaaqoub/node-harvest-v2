@@ -1,10 +1,10 @@
 let Request = require('../Request');
 
-module.exports = class Estimate_Messages {
+module.exports = class Invoice_Messages {
 
     constructor(options) {
         this.name = 'messages';
-        this.baseUri = 'https://api.harvestapp.com/v2/estimates/';
+        this.baseUri = 'https://api.harvestapp.com/v2/invoices/';
         this.options = options;
     }
 
