@@ -26,4 +26,18 @@ module.exports = class Estimate_Line_Item {
 
         new Request(this.options, cb);
     }
+
+    delete(id, params, cb) {
+        if(!params.line_items[0].id)
+            return console.log('Deleting an Estimate Line Item requires an id');
+
+        if (!params.line_items[0]._destroy)
+            return console.log('Deleting an Estimate Line Item requires to set "_destroy": "true" param');
+
+        this.options.url = this.baseUri + '/' + id;
+        this.options.method = 'PATCH';
+        this.options.body = JSON.stringify(params);
+
+        new Request(this.options, cb);
+    }
 }

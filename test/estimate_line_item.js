@@ -17,4 +17,11 @@ describe('Estimate Line Item API', function() {
             done();
         });
     });
+
+    describe('Delete an Estimate Line Item', function() {
+        it('should Delete an Estimate Line Item', function(done) {
+            assert.equal(typeof harvest.estimateLineItem.delete, 'function');
+            done();
+        });
+    });
 });
