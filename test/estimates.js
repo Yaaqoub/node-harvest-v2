@@ -39,4 +39,11 @@ describe('Estimates API', function() {
             done();
         });
     });
+
+    describe('Delete an Estimate', function() {
+        it('should Delete an Estimate', function(done) {
+            assert.equal(typeof harvest.estimates.delete, 'function');
+            done();
+        });
+    });
 });
