@@ -21,4 +21,11 @@ module.exports = class Estimate_Messages {
 
         new Request(this.options, cb);
     }
+
+    delete(estimate_id, message_id, cb) {
+        this.options.url = this.baseUri + estimate_id + '/' + this.name + '/' + message_id;
+        this.options.method = 'DELETE';
+
+        new Request(this.options, cb);
+    }
 }

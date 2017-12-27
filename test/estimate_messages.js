@@ -21,4 +21,11 @@ describe('Estimate Messages API', function() {
             done();
         });
     });
+
+    describe('Delete Estimate Message', function() {
+        it('should delete an Estimate Message', function(done) {
+            assert.equal(typeof harvest.estimateMessages.delete, 'function');
+            done();
+        });
+    });
 });
