@@ -28,4 +28,11 @@ describe('Estimate Item Categories API', function() {
             done();
         });
     });
+
+    describe('Update an Estimate Item Categories', function() {
+        it('should Update an Estimate Item Categories', function(done) {
+            assert.equal(typeof harvest.estimateItemCategories.update, 'function');
+            done();
+        });
+    });
 });
