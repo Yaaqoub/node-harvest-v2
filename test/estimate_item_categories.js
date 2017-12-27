@@ -35,4 +35,11 @@ describe('Estimate Item Categories API', function() {
             done();
         });
     });
+
+    describe('Delete an Estimate Item Categories', function() {
+        it('should Delete an Estimate Item Categories', function(done) {
+            assert.equal(typeof harvest.estimateItemCategories.delete, 'function');
+            done();
+        });
+    });
 });

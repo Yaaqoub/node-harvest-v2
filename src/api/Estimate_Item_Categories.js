@@ -35,4 +35,11 @@ module.exports = class Estimate_Item_Categories {
 
         new Request(this.options, cb);
     }
+
+    delete(id, cb) {
+        this.options.url = this.baseUri + '/' + id;
+        this.options.method = 'DELETE';
+
+        new Request(this.options, cb);
+    }
 }
