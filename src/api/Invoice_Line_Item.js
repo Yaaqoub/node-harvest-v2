@@ -15,4 +15,15 @@ module.exports = class Invoice_Line_Item {
 
         new Request(this.options, cb);
     }
+
+    update(id, params, cb) {
+        if(!params.line_items[0].id)
+            return console.log('Updating an Invoice Line Item requires an id');
+
+        this.options.url = this.baseUri + '/' + id;
+        this.options.method = 'PATCH';
+        this.options.body = JSON.stringify(params);
+
+        new Request(this.options, cb);
+    }
 }

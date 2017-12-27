@@ -10,4 +10,11 @@ describe('Invoice Line Item API', function() {
             done();
         });
     });
+
+    describe('Update an Invoice Line Item', function() {
+        it('should Update an Invoice Line Item', function(done) {
+            assert.equal(typeof harvest.invoiceLineItem.update, 'function');
+            done();
+        });
+    });
 });
