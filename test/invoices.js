@@ -28,4 +28,11 @@ describe('Invoices API', function() {
             done();
         });
     });
+
+    describe('Update an invoice', function() {
+        it('should Update an invoice', function(done) {
+            assert.equal(typeof harvest.invoices.update, 'function');
+            done();
+        });
+    });
 });

@@ -27,4 +27,12 @@ module.exports = class Invoices {
 
         new Request(this.options, cb);
     }
+
+    update(id, params, cb) {
+        this.options.url = this.baseUri + '/' + id;
+        this.options.method = 'PATCH';
+        this.options.body = JSON.stringify(params);
+
+        new Request(this.options, cb);
+    }
 }
