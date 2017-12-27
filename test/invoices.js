@@ -4,7 +4,7 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 describe('Invoices API', function() {
-    describe('Get All Invoices', function() {
+    describe('List All Invoices', function() {
         it('should return all Invoices', function(done) {
             harvest.invoices.list(function(error, response, invoices) {
                 //assert(!error);
@@ -12,6 +12,13 @@ describe('Invoices API', function() {
                 //assert.equal(typeof invoices[0], 'object');
                 done();
             });
+        });
+    });
+
+    describe('Retrieve an invoice', function() {
+        it('should Retrieve an invoice', function(done) {
+            assert.equal(typeof harvest.invoices.retrieve, 'function');
+            done();
         });
     });
 });
