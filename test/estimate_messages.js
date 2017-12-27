@@ -28,4 +28,11 @@ describe('Estimate Messages API', function() {
             done();
         });
     });
+
+    describe('Mark an Estimate', function() {
+        it('should send a mark event', function(done) {
+            assert.equal(typeof harvest.estimateMessages.mark, 'function');
+            done();
+        });
+    });
 });

@@ -8,14 +8,14 @@ module.exports = class Estimate_Messages {
         this.options = options;
     }
 
-    list(id, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name;
+    list(estimate_id, cb) {
+        this.options.url = this.baseUri + estimate_id + '/' + this.name;
 
         new Request(this.options, cb);
     }
 
-    create(id, params, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name;
+    create(estimate_id, params, cb) {
+        this.options.url = this.baseUri + estimate_id + '/' + this.name;
         this.options.method = 'POST';
         this.options.body = JSON.stringify(params);
 
@@ -25,6 +25,14 @@ module.exports = class Estimate_Messages {
     delete(estimate_id, message_id, cb) {
         this.options.url = this.baseUri + estimate_id + '/' + this.name + '/' + message_id;
         this.options.method = 'DELETE';
+
+        new Request(this.options, cb);
+    }
+
+    mark(estimate_id, params, cb) {
+        this.options.url = this.baseUri + estimate_id + '/' + this.name;
+        this.options.method = 'POST';
+        this.options.body = JSON.stringify(params);
 
         new Request(this.options, cb);
     }
