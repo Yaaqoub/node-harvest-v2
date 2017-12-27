@@ -4,7 +4,7 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 describe('Estimate Item Categories API', function() {
-    describe('Get All Estimate Item Categories', function() {
+    describe('List All Estimate Item Categories', function() {
         it('should return all Estimate Item Categories', function(done) {
             harvest.estimateItemCategories.list(function(error, response, estimateItemCategories) {
                 //assert(!error);
@@ -12,6 +12,13 @@ describe('Estimate Item Categories API', function() {
                 //assert.equal(typeof estimateItemCategories[0], 'object');
                 done();
             });
+        });
+    });
+
+    describe('Retrieve an Estimate Item Categories', function() {
+        it('should Retrieve an Estimate Item Categories', function(done) {
+            assert.equal(typeof harvest.estimateItemCategories.retrieve, 'function');
+            done();
         });
     });
 });

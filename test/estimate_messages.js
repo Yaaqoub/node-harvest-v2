@@ -4,7 +4,7 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 describe('Estimate Messages API', function() {
-    describe('Get All Estimate Messages', function() {
+    describe('List All Estimate Messages', function() {
         it('should return all Estimate Messages', function(done) {
             harvest.estimateMessages.list(1593175, function(error, response, estimateMessages) {
                 //assert(!error);
