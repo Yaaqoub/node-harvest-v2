@@ -17,4 +17,11 @@ describe('Invoice Line Item API', function() {
             done();
         });
     });
+
+    describe('Delete an Invoice Line Item', function() {
+        it('should Delete an Invoice Line Item', function(done) {
+            assert.equal(typeof harvest.invoiceLineItem.delete, 'function');
+            done();
+        });
+    });
 });
