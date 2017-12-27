@@ -21,4 +21,11 @@ describe('Estimate Item Categories API', function() {
             done();
         });
     });
+
+    describe('Create an Estimate Item Categories', function() {
+        it('should Create an Estimate Item Categories', function(done) {
+            assert.equal(typeof harvest.estimateItemCategories.create, 'function');
+            done();
+        });
+    });
 });

@@ -19,4 +19,12 @@ module.exports = class Estimate_Item_Categories {
 
         new Request(this.options, cb);
     }
+
+    create(params, cb) {
+        this.options.url = this.baseUri;
+        this.options.method = 'POST';
+        this.options.body = JSON.stringify(params);
+
+        new Request(this.options, cb);
+    }
 }
