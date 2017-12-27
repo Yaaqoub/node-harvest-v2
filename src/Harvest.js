@@ -19,7 +19,7 @@ module.exports = class Harvest {
             let Resource = require(`./api/${name}`);
 
             this[prop] = new(Resource)(this.options);
-            //console.log(this[prop]);
+            //console.log(prop);
         });
     }
 }

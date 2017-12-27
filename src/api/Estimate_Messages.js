@@ -13,4 +13,12 @@ module.exports = class Estimate_Messages {
 
         new Request(this.options, cb);
     }
+
+    create(id, params, cb) {
+        this.options.url = this.baseUri + id + '/' + this.name;
+        this.options.method = 'POST';
+        this.options.body = JSON.stringify(params);
+
+        new Request(this.options, cb);
+    }
 }

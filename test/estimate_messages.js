@@ -14,4 +14,11 @@ describe('Estimate Messages API', function() {
             });
         });
     });
+
+    describe('Create Estimate Message', function() {
+        it('should create an Estimate Message', function(done) {
+            assert.equal(typeof harvest.estimateMessages.create, 'function');
+            done();
+        });
+    });
 });
