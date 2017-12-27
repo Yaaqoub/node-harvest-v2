@@ -35,4 +35,11 @@ describe('Invoices API', function() {
             done();
         });
     });
+
+    describe('Delete an invoice', function() {
+        it('should Delete an invoice', function(done) {
+            assert.equal(typeof harvest.invoices.delete, 'function');
+            done();
+        });
+    });
 });
