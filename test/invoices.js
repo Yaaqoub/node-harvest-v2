@@ -21,4 +21,11 @@ describe('Invoices API', function() {
             done();
         });
     });
+
+    describe('Create an invoice', function() {
+        it('should Create an invoice', function(done) {
+            assert.equal(typeof harvest.invoices.create, 'function');
+            done();
+        });
+    });
 });
