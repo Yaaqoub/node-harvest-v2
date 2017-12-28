@@ -4,7 +4,7 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 describe('Invoice Item Categories API', function() {
-    describe('Get All Invoice Item Categories', function() {
+    describe('List All Invoice Item Categories', function() {
         it('should return all Invoice Item Categories', function(done) {
             harvest.invoiceItemCategories.list(function(error, response, invoice_item_categories) {
                 //assert(!error);
@@ -12,6 +12,34 @@ describe('Invoice Item Categories API', function() {
                 //assert.equal(typeof invoice_item_categories[0], 'object');
                 done();
             });
+        });
+    });
+
+    describe('Retrieve an Invoice Item Categories', function() {
+        it('should retrieve an Invoice Item Categories', function(done) {
+            assert.equal(typeof harvest.invoiceItemCategories.retrieve, 'function');
+            done();
+        });
+    });
+
+    describe('Create an Invoice Item Categories', function() {
+        it('should create an Invoice Item Categories', function(done) {
+            assert.equal(typeof harvest.invoiceItemCategories.create, 'function');
+            done();
+        });
+    });
+
+    describe('Update an Invoice Item Categories', function() {
+        it('should update an Invoice Item Categories', function(done) {
+            assert.equal(typeof harvest.invoiceItemCategories.update, 'function');
+            done();
+        });
+    });
+
+    describe('Delete an Invoice Item Categories', function() {
+        it('should delete an Invoice Item Categories', function(done) {
+            assert.equal(typeof harvest.invoiceItemCategories.delete, 'function');
+            done();
         });
     });
 });
