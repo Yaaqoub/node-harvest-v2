@@ -3,7 +3,7 @@ let assert = require('assert'),
 
 let harvest = config_auth.harvest;
 
-describe('Clients API', function() {
+describe('Clients Contacts API', function() {
     describe('List all contacts', function() {
         it('should List all contacts', function(done) {
             assert.equal(typeof harvest.clientContacts.list, 'function');
