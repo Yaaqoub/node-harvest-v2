@@ -1,4 +1,4 @@
-# Node-Harvest-API-V2
+# Node Harvest API V2
 
 ## Install
     npm install harvest-v2
