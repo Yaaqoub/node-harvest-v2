@@ -57,6 +57,11 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(clientID, {params}, callback)`
     - `delete(clientID, callback)`
+    - `Example: `
+        ```js
+        harvest.clients.list()
+        ```
+        
 
 - [Client Contacts](https://help.getharvest.com/api-v2/clients-api/clients/contacts/)
     - `list(callback)`
@@ -64,9 +69,17 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(clientContactID, {params}, callback)`
     - `delete(clientContactID, callback)`
+    - `Example: `
+        ```js
+        harvest.clientContacts.list()
+        ```
     
 - [Company](https://help.getharvest.com/api-v2/company-api/company/company/)
     - `retrieve(callback)`
+    - `Example: `
+        ```js
+        harvest.company.retrieve()
+        ```
     
 - [Invoices](https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/)
     - `list(callback)`
@@ -74,17 +87,29 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(invoiceID, {params}, callback)`
     - `delete(invoiceID, callback)`
+    - `Example: `
+        ```js
+        harvest.invoices.list()
+        ```
         
 - [Invoice Messages](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-messages/)
     - `list(invoiceID, callback)`
     - `create(invoiceID, {params}, callback)`
     - `delete(invoiceID, messageID, callback)`
     - `mark(invoiceID, params, callback)`
+    - `Example: `
+        ```js
+        harvest.invoiceMessages.list()
+        ```
     
 - [Invoice Payments](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments/)
     - `list(invoiceID, callback)`
     - `create(invoiceID, {params}, callback)`
     - `delete(invoiceID, paymentID, callback)`
+    - `Example: `
+        ```js
+        harvest.invoicePayments.list()
+        ```
     
 - [Invoice Item Categories](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-item-categories/)
     - `list(callback)`
@@ -92,11 +117,19 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(invoiceItemCatID, {params}, callback)`
     - `delete(invoiceItemCatID, callback)`
+    - `Example: `
+        ```js
+        harvest.invoiceItemCategories.list()
+        ```
     
 - [Invoice Line Item](https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/#the-invoice-line-item-object)
     - `create(invoiceID, {params}, callback)`
     - `update(invoiceID, {params}, callback)`
     - `delete(invoiceID, {params}, callback)`
+    - `Example: `
+        ```js
+        harvest.invoiceLineItem.create()
+        ```
     
 - [Estimates](https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/)
     - `list(callback)`
@@ -104,21 +137,40 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(estimateID, {params}, callback)`
     - `delete(estimateID, callback)`
+    - `Example: `
+        ```js
+        harvest.estimates.list()
+        ```
+        
 - [Estimate Line Item](https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#the-estimate-line-item-object)
     - `create(estimateID, {params}, callback)`
     - `update(estimateID, {params}, callback)`
     - `delete(estimateID, {params}, callback)`
+    - `Example: `
+        ```js
+        harvest.estimateLineItem.create()
+        ```
+        
 - [Estimate Messages](https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/)
     - `list(estimateID, callback)`
     - `create(estimateID, {params}, callback)`
     - `delete(estimateID, messageID, callback)`
     - `mark(estimateID, {params}, callback)`
+    - `Example: `
+        ```js
+        harvest.estimateMessages.list()
+        ```
+        
 - [Estimate Item Categories](https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/)
     - `list(callback)`
     - `retrieve(estimateItemCatID, callback)`
     - `create({params}, callback)`
     - `update(estimateItemCatID, {params}, callback)`
     - `delete(estimateItemCatID, callback)`
+    - `Example: `
+        ```js
+        harvest.estimateItemCategories.list()
+        ```
 
 - [Expenses](https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/)
     - `list(callback)`
@@ -126,12 +178,21 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(expenseID, {params}, callback)`
     - `delete(expenseID, callback)`
+    - `Example: `
+        ```js
+        harvest.expenses.list()
+        ```
+            
 - [Expense Categories](https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/)
     - `list(callback)`
     - `retrieve(expenseCategoryID, callback)`
     - `create({params}, callback)`
     - `update(expenseCategoryID, {params}, callback)`
     - `delete(expenseCategoryID, callback)`
+    - `Example: `
+        ```js
+        harvest.expenseCategories.list()
+        ```
     
 - [Tasks](https://help.getharvest.com/api-v2/tasks-api/tasks/tasks/)
     - `list(callback)`
@@ -139,6 +200,10 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(taskID, {params}, callback)`
     - `delete(taskID, callback)`
+    - `Example: `
+        ```js
+        harvest.tasks.list()
+        ```
 
 - [Time Entries](https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/)
     - `list(callback)`
@@ -148,6 +213,10 @@ If you want to display available params for each harvest api click on it, or cli
     - `delete(timeEntryID, callback)`
     - `restart(timeEntryID, callback)`
     - `stop(timeEntryID, callback)`
+    - `Example: `
+        ```js
+        harvest.timeEntries.list()
+        ```
 
 - [Projects](https://help.getharvest.com/api-v2/projects-api/projects/projects/)
     - `list(callback)`
@@ -155,18 +224,32 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(projectID, {params}, callback)`
     - `delete(projectID, callback)`
+    - `Example: `
+        ```js
+        harvest.projects.list()
+        ```
+        
 - [Project User Assignments](https://help.getharvest.com/api-v2/projects-api/projects/user-assignments/)
     - `list(projectID, callback)`
     - `retrieve(projectID, userAssignmentsID, callback)`
     - `create(projectID, {params}, callback)`
     - `update(projectID, userAssignmentsID, {params}, callback)`
     - `delete(projectID, userAssignmentsID, callback)`
+    - `Example: `
+        ```js
+        harvest.projectUserAssignments.list()
+        ```
+        
 - [Project Task Assignments](https://help.getharvest.com/api-v2/projects-api/projects/task-assignments/)
     - `list(projectID, callback)`
     - `retrieve(projectID, taskAssignmentsID, callback)`
     - `create(projectID, {params}, callback)`
     - `update(projectID, taskAssignmentsID, {params}, callback)`
     - `delete(projectID, taskAssignmentsID, callback)`
+    - `Example: `
+        ```js
+        harvest.projectTaskAssignments.list()
+        ```
     
 - [Roles](https://help.getharvest.com/api-v2/projects-api/projects/projects/)
     - `list(callback)`
@@ -174,6 +257,10 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(roleID, {params}, callback)`
     - `delete(roleID, callback)`
+    - `Example: `
+        ```js
+        harvest.roles.list()
+        ```
     
 - [Users](https://help.getharvest.com/api-v2/users-api/users/users/)
     - `list(callback)`
@@ -181,6 +268,14 @@ If you want to display available params for each harvest api click on it, or cli
     - `create({params}, callback)`
     - `update(userID, {params}, callback)`
     - `delete(userID, callback)`
+    - `Example: `
+        ```js
+        harvest.users.list()
+        ```
     
 - [User Project Assignments](https://help.getharvest.com/api-v2/users-api/users/project-assignments/)
     - `list(theUser, callback)`  // me or userID
+    - `Example: `
+        ```js
+        harvest.userProjectAssignments.list()
+        ```
