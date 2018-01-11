@@ -7,7 +7,7 @@
 ### Authentication
 
 ```js
-let Harvest = require('Harvest');
+let Harvest = require('harvest-v2');
 let harvest = new Harvest({
         account_ID: config.harvest.account_id,
         access_token: config.harvest.token,
