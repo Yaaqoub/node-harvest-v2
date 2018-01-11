@@ -6,12 +6,8 @@ let harvest = config_auth.harvest;
 describe('Invoice Messages API', function() {
     describe('List All Invoice Messages', function() {
         it('should return all Invoice Messages', function(done) {
-            harvest.invoiceMessages.list(14729039, function(error, response, invoice_messages) {
-                //assert(!error);
-                //assert(Array.isArray(invoice_messages));
-                //assert.equal(typeof invoice_messages[0], 'object');
-                done();
-            });
+            assert.equal(typeof harvest.invoiceMessages.list, 'function');
+            done();
         });
     });
 

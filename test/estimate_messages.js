@@ -6,12 +6,8 @@ let harvest = config_auth.harvest;
 describe('Estimate Messages API', function() {
     describe('List All Estimate Messages', function() {
         it('should return all Estimate Messages', function(done) {
-            harvest.estimateMessages.list(1593175, function(error, response, estimateMessages) {
-                //assert(!error);
-                //assert(Array.isArray(estimateMessages));
-                //assert.equal(typeof estimateMessages[0], 'object');
-                done();
-            });
+            assert.equal(typeof harvest.estimateMessages.list, 'function');
+            done();
         });
     });
 

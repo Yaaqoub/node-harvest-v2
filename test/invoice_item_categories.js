@@ -6,12 +6,8 @@ let harvest = config_auth.harvest;
 describe('Invoice Item Categories API', function() {
     describe('List All Invoice Item Categories', function() {
         it('should return all Invoice Item Categories', function(done) {
-            harvest.invoiceItemCategories.list(function(error, response, invoice_item_categories) {
-                //assert(!error);
-                //assert(Array.isArray(invoice_item_categories));
-                //assert.equal(typeof invoice_item_categories[0], 'object');
-                done();
-            });
+            assert.equal(typeof harvest.invoiceItemCategories.list, 'function');
+            done();
         });
     });
 

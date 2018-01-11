@@ -6,12 +6,8 @@ let harvest = config_auth.harvest;
 describe('Invoices API', function() {
     describe('List All Invoices', function() {
         it('should return all Invoices', function(done) {
-            harvest.invoices.list(function(error, response, invoices) {
-                //assert(!error);
-                //assert(Array.isArray(invoices));
-                //assert.equal(typeof invoices[0], 'object');
-                done();
-            });
+            assert.equal(typeof harvest.invoices.list, 'function');
+            done();
         });
     });
 
