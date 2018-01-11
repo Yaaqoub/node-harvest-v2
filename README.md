@@ -1,5 +1,6 @@
 # Node Harvest API V2
-
+Harvest is a web-based time tracking tool. This package is a full client API built using node.js and the V2 of Harvest API.
+If you want to use the Harvest API V1 there is another package for that, [here](https://www.npmjs.com/package/harvest).
 ## Install
     npm install harvest-v2
 ## Usage
