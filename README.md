@@ -1,7 +1,7 @@
 # Node-Harvest-API-V2
 
 ## Install
-
+    npm install harvest-v2
 ## Usage
 
 ### Authentication
