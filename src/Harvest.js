@@ -1,3 +1,5 @@
+'use strict';
+
 let HeaderAuth = require('./authentication/HeaderAuth'),
     fs = require('fs'),
     path = require('path'),
