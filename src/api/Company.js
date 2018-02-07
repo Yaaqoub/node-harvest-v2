@@ -1,4 +1,5 @@
 let base = require('../mixins/Base.js');
+let pick = require('lodash/pick.js');
 
 function Company(options) {
     this.name = 'company';
