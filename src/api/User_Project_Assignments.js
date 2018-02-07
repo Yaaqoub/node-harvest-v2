@@ -1,16 +1,11 @@
-let Request = require('../Request');
+let base = require('../mixins/Base.js');
 
-module.exports = class User_Project_Assignments {
-
-    constructor(options) {
-        this.name = 'project_assignments';
-        this.baseUri = 'https://api.harvestapp.com/v2/users/';
-        this.options = options;
-    }
-
-    list(theUser, cb) {
-        this.options.url = this.baseUri + theUser + '/' + this.name;
-
-        new Request(this.options, cb);
-    }
+function User_Project_Assignments(options) {
+    this.name = 'project_assignments';
+    this.baseUri = 'https://api.harvestapp.com/v2/users';
+    this.options = options;
 }
+
+Object.assign(User_Project_Assignments.prototype, pick(base, ['list']));
+
+module.exports = User_Project_Assignments;
