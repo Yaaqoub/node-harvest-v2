@@ -1,4 +1,5 @@
 let base = require('../mixins/Base.js');
+let pick = require('lodash/pick.js');
 
 function Invoice_Line_Item(options) {
     this.name = 'invoices';
