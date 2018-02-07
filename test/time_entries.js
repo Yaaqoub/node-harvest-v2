@@ -4,9 +4,16 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 describe('Time Entries API', function() {
+    describe('List a specific time entries', function() {
+        it('should List a specific time entries', function(done) {
+            assert.equal(typeof harvest.timeEntries.list, 'function');
+            done();
+        });
+    });
+
     describe('List all time entries', function() {
         it('should List all time entries', function(done) {
-            assert.equal(typeof harvest.timeEntries.list, 'function');
+            assert.equal(typeof harvest.timeEntries.listAll, 'function');
             done();
         });
     });

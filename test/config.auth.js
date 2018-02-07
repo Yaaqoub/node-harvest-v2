@@ -3,7 +3,7 @@ let Harvest = require('../src/Harvest');
 const config = {
     account_ID: '',
     access_token: '',
-    user_agent: 'Harvest API'
+    user_agent: ''
 };
 
 const harvest = new Harvest(config);

@@ -1,6 +1,6 @@
 {
   "name": "harvest-v2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "invoice",
     "estimate",
     "clients",
-    "businesses"
+    "businesses",
+    "time tracking"
   ],
   "author": {
     "name": "Yaaqoub Semlali",

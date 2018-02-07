@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Yaaqoub/node-harvest-v2/badge.svg?branch=master)](https://coveralls.io/github/Yaaqoub/node-harvest-v2?branch=master)
+
 # Node Harvest API V2
 Harvest is a web-based time tracking tool. This package is a full client API built using node.js and the V2 of Harvest API.
 If you want to use the Harvest API V1 there is another package for that, [here](https://www.npmjs.com/package/harvest).
@@ -207,7 +209,8 @@ If you want to display available params for each harvest api click on it, or cli
         ```
 
 - [Time Entries](https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/)
-    - `list(callback)`
+    - `list({params}, callback)`
+    - `listAll(callback)`
     - `retrieve(timeEntryID, callback)`
     - `create({params}, callback)`
     - `update(timeEntryID, {params}, callback)`
