@@ -209,8 +209,8 @@ If you want to display available params for each harvest api click on it, or cli
         ```
 
 - [Time Entries](https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/)
-    - `list({params}, callback)`
-    - `listAll(callback)`
+    - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(timeEntryID, callback)`
     - `create({params}, callback)`
     - `update(timeEntryID, {params}, callback)`
