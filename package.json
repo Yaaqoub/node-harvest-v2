@@ -20,11 +20,17 @@
     "businesses",
     "time tracking"
   ],
-  "author": {
-    "name": "Yaaqoub Semlali",
-    "email": "semlali.yaaqoub@gmail.com",
-    "url": "https://www.yaaqoubsemlali.com"
-  },
+  "contributors": [
+    {
+      "name": "Yaaqoub Semlali",
+      "email": "semlali.yaaqoub@gmail.com",
+      "url": "https://www.yaaqoubsemlali.com"
+    },
+    {
+      "name": "Chakib Bouabd",
+      "email": "chakib.bouabd@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
