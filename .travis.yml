@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "8"
+  - "7"
+sudo: false
+after_success:
+  - ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
