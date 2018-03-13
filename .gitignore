@@ -12,9 +12,6 @@ node_modules
 # Optional idea directory
 .idea
 
-# Optional package-lock.json
-package-lock.json
-
 # Local ENV Variables for development
 .env
 
