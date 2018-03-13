@@ -20,3 +20,6 @@ package-lock.json
 
 #Test files
 test/me.js
+
+#Coverage things
+coverage/
