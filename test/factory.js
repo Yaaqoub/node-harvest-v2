@@ -22,8 +22,18 @@ function createClient (callback) {
     });
 }
 
-function createProject () {
-    console.log("createProject");
+function createProject (clientID, callback) {
+    harvest.projects.create({
+        'client_id': clientID,
+        'name': project_test_name,
+        'is_billable': 'true',
+        'bill_by': 'Project',
+        'hourly_rate': '100.0',
+        'budget_by': 'project',
+        'budget': '10000'
+    }, function(error, response, res) {
+        callback(getID(res));
+    });
 }
 
 function cleanHarvest () {
@@ -33,5 +43,6 @@ function cleanHarvest () {
 module.exports = {
     createClient,
     createProject,
-    cleanHarvest
+    cleanHarvest,
+    getID
 };
