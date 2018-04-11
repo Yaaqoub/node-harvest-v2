@@ -11,4 +11,4 @@ module.exports = class HeaderAuth {
     header() {
         return this.headers;
     }
-}
+};

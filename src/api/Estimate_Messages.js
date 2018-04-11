@@ -14,7 +14,7 @@ Estimate_Messages.prototype.mark = function(estimate_id, params, cb) {
     this.options.method = 'POST';
     this.options.body = JSON.stringify(params);
 
-    new Request(this.options, cb);
-}
+    return request(this.options, cb);
+};
 
 module.exports = Estimate_Messages;

@@ -13,15 +13,16 @@ module.exports = class Harvest {
             url: '',
             method: '',
             headers: this.headerAuth.header(),
-            body: ''
-        }
+            body: '',
+            resolveWithFullResponse: true
+        };
 
         fs.readdirSync(path.join(__dirname, 'api')).forEach(name => {
+            // Refacto this line
             let prop = camelCase(name.slice(0, -3));
             let Resource = require(`./api/${name}`);
 
             this[prop] = new(Resource)(this.options);
-            //console.log(prop);
         });
     }
-}
+};

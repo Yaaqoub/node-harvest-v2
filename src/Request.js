@@ -9,4 +9,4 @@ module.exports = class Request {
     constructor(options, cb) {
         request(options, cb);
     }
-}
+};
