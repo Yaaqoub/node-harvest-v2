@@ -13,4 +13,4 @@ const harvest = new Harvest(config);
 module.exports = {
     config,
     harvest
-}
+};
