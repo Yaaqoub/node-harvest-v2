@@ -2,7 +2,6 @@
 
 # Node Harvest API V2
 Harvest is a web-based time tracking tool. This package is a full client API built using node.js and the V2 of Harvest API.
-If you want to use the Harvest API V1 there is another package for that, [here](https://www.npmjs.com/package/harvest).
 ## Install
     npm install harvest-v2
 ## Usage
@@ -20,15 +19,40 @@ let harvest = new Harvest({
 
 ### Methods Example
 
-Each method returns a callback with results.
+For example to get the Clients list:
 
 ```js
-harvest.estimates.list(function(error, response, results) {
+harvest.clients.list().then((clients) => {
+    console.log(clients);
+}).catch(function (err) {
+    console.log(err)
+});
+```
+OR
+```js
+harvest.clients.list().then(function (clients) {
+    console.log(clients);
+}).catch(function (err) {
+    console.log(err)
+});
+```
+OR
+```js
+harvest.clients.list(function(error, response, results) {
     if (!error) {
         console.log(results);
     }
 });
 ```
+
+All three methods return the body of the response. To get the full response with two first methods set resolveWithFullResponse to true before using the method:
+```js
+harvest.options.resolveWithFullResponse = true;
+
+harvest.clients.list().then(...);
+```
+
+It is false by default.
 
 ##Testing
 
@@ -37,9 +61,9 @@ And you also need to change the harvest config file (test/config.auth.js) with y
 
 ```js
 const config = {
-    account_ID: '...',
-    access_token: '...',
-    user_agent: 'Harvest API'
+    account_ID: process.env.ACCOUNT_ID || '...',
+    access_token: process.env.ACCESS_TOKEN || '...',
+    user_agent: process.env.USER_AGENT || '...'
 };
 ```
 
