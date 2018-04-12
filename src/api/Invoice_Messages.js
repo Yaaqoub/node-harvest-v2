@@ -14,7 +14,7 @@ Invoice_Messages.prototype.mark = function(invoice_id, params, cb) {
     this.options.method = 'POST';
     this.options.body = JSON.stringify(params);
 
-    new Request(this.options, cb);
-}
+    return request(this.options, cb);
+};
 
 module.exports = Invoice_Messages;
