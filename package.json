@@ -1,6 +1,6 @@
 {
   "name": "harvest-v2",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
