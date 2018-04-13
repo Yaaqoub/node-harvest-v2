@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/Yaaqoub/node-harvest-v2.svg?branch=master)](https://travis-ci.org/Yaaqoub/node-harvest-v2)
 [![Coverage Status](https://coveralls.io/repos/github/Yaaqoub/node-harvest-v2/badge.svg?branch=master)](https://coveralls.io/github/Yaaqoub/node-harvest-v2?branch=master)
+[![npm version](https://badge.fury.io/js/harvest-v2.svg)](https://badge.fury.io/js/harvest-v2)
 
 # Node Harvest API V2
 Harvest is a web-based time tracking tool. This package is a full client API built using node.js and the V2 of Harvest API.
