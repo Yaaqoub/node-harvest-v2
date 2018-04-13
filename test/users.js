@@ -5,35 +5,35 @@ let harvest = config_auth.harvest;
 
 describe('Users API', function() {
     describe('List all users', function() {
-        it('should List all users', function(done) {
+        it('should implement List all users method', (done) => {
             assert.equal(typeof harvest.users.list, 'function');
             done();
         });
     });
 
     describe('Retrieve a user', function() {
-        it('should Retrieve a user', function(done) {
+        it('should implement Retrieve a user method', (done) => {
             assert.equal(typeof harvest.users.retrieve, 'function');
             done();
         });
     });
 
     describe('Create a user', function() {
-        it('should Create a user', function(done) {
+        it('should implement Create a user method', (done) => {
             assert.equal(typeof harvest.users.create, 'function');
             done();
         });
     });
 
     describe('Update a user', function() {
-        it('should Update a user', function(done) {
+        it('should implement Update a user method', (done) => {
             assert.equal(typeof harvest.users.update, 'function');
             done();
         });
     });
 
     describe('Delete a user', function() {
-        it('should Delete a user', function(done) {
+        it('should implement Delete a user method', (done) => {
             assert.equal(typeof harvest.users.delete, 'function');
             done();
         });

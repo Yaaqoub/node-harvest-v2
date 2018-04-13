@@ -8,7 +8,12 @@ const base = {
     },
 
     retrieve(id, cb) {
-        this.options.url = this.baseUri + '/' + id;
+        if (id) {
+            this.options.url = this.baseUri + '/' + id;
+        } else {
+            this.options.url = this.baseUri;
+        }
+
         return request(this.options, cb);
     },
 

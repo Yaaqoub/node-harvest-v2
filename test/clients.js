@@ -1,40 +1,93 @@
 let assert = require('assert'),
-    config_auth = require('./config.auth');
+    config_auth = require('./config.auth'),
+    factory = require('./factory');
 
 let harvest = config_auth.harvest;
 
+const CLIENT_NAME = factory.generateRandomNames('CLIENT');
+let CLIENT_ID = null;
+
 describe('Clients API', function() {
+    describe('Create a client', function() {
+        it('should implement Create a client method', (done) => {
+            assert.equal(typeof harvest.clients.create, 'function');
+            done();
+        });
+
+        it('should Create a client', async() => {
+            factory.cleanHarvestOptions();
+
+            const client = await harvest.clients.create({
+                'name': CLIENT_NAME,
+                'currency': 'EUR'
+            });
+
+            CLIENT_ID = factory.getID(client);
+            assert.equal(typeof CLIENT_ID, 'number', 'The response body should contain a id');
+        });
+    });
+
     describe('List all clients', function() {
-        it('should List all clients', function(done) {
+        it('should implement List all clients method', (done) => {
             assert.equal(typeof harvest.clients.list, 'function');
+            done();
+        });
+
+        it('should list all clients', (done) => {
+            factory.cleanHarvestOptions();
+            harvest.clients.list().then((clients) => {
+                assert(clients);
+            });
             done();
         });
     });
 
     describe('Retrieve a client', function() {
-        it('should Retrieve a client', function(done) {
+        it('should implement Retrieve a client method', (done) => {
             assert.equal(typeof harvest.clients.retrieve, 'function');
             done();
         });
-    });
 
-    describe('Create a client', function() {
-        it('should Create a client', function(done) {
-            assert.equal(typeof harvest.clients.create, 'function');
+        it('should retrieve a client', (done) => {
+            factory.cleanHarvestOptions();
+            assert(CLIENT_ID);
+            harvest.clients.retrieve(CLIENT_ID).then((client) => {
+                assert(client);
+                assert.equal(factory.getID(client), CLIENT_ID);
+                assert.equal(factory.getName(client), CLIENT_NAME);
+            });
             done();
         });
     });
 
     describe('Update a client', function() {
-        it('should Update a client', function(done) {
+        it('should implement Update a client method', (done) => {
             assert.equal(typeof harvest.clients.update, 'function');
+            done();
+        });
+
+        it('should update a client', (done) => {
+            factory.cleanHarvestOptions();
+            assert(CLIENT_ID);
+            harvest.clients.update(CLIENT_ID, {
+                address: 'random address'
+            }).then((client) => {
+                assert(client);
+            });
             done();
         });
     });
 
     describe('Delete a client', function() {
-        it('should Delete a client', function(done) {
+        it('should implement Delete a client method', (done) => {
             assert.equal(typeof harvest.clients.delete, 'function');
+            done();
+        });
+
+        it('should Delete a client', (done) => {
+            factory.cleanHarvestOptions();
+            assert(CLIENT_ID);
+            harvest.clients.delete(CLIENT_ID);
             done();
         });
     });

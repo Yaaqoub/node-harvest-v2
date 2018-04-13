@@ -5,35 +5,35 @@ let harvest = config_auth.harvest;
 
 describe('Project Task Assignments API', function() {
     describe('List all task assignments', function() {
-        it('should List all task assignments', function(done) {
+        it('should implement List all task assignments method', (done) => {
             assert.equal(typeof harvest.projectTaskAssignments.list, 'function');
             done();
         });
     });
 
     describe('Retrieve a task assignment', function() {
-        it('should Retrieve a task assignment', function(done) {
+        it('should implement Retrieve a task assignment method', (done) => {
             assert.equal(typeof harvest.projectTaskAssignments.retrieve, 'function');
             done();
         });
     });
 
     describe('Create a task assignment', function() {
-        it('should Create a task assignment', function(done) {
+        it('should implement Create a task assignment method', (done) => {
             assert.equal(typeof harvest.projectTaskAssignments.create, 'function');
             done();
         });
     });
 
     describe('Update a task assignment', function() {
-        it('should Update a task assignment', function(done) {
+        it('should implement Update a task assignment method', (done) => {
             assert.equal(typeof harvest.projectTaskAssignments.update, 'function');
             done();
         });
     });
 
     describe('Delete a task assignment', function() {
-        it('should Delete a task assignment', function(done) {
+        it('should implement Delete a task assignment method', (done) => {
             assert.equal(typeof harvest.projectTaskAssignments.delete, 'function');
             done();
         });

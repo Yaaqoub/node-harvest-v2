@@ -1,45 +1,30 @@
 var exports = module.exports = {};
 
-let auth = require('./config.auth'),
-    harvest = auth.harvest;
+const random_number = Math.floor(Math.random() * 10000) + 1
 
-const random_number = Math.floor(Math.random() * 10000) + 1;
+let config_auth = require('./config.auth');
+let harvest = config_auth.harvest;
 
-exports.createClient = function(callback) {
-    harvest.clients.create({
-        'name': generateRandomNames('client'),
-        'currency': 'EUR'
-    }, function(error, response, res) {
-        callback(getID(res));
-        //done();
-    });
+exports.cleanHarvestOptions = function() {
+    harvest.options.url = '';
+    harvest.options.method = '';
+    harvest.options.body = '';
 };
 
-exports.createProject = function(clientID, callback) {
-    harvest.projects.create({
-        'client_id': clientID,
-        'name': generateRandomNames('project'),
-        'is_billable': 'true',
-        'bill_by': 'Project',
-        'hourly_rate': '100.0',
-        'budget_by': 'project',
-        'budget': '10000'
-    }, function(error, response, res) {
-        callback(getID(res));
-    });
+exports.generateRandomNames = function(name) {
+    return 'HARVEST_TEST_' + name + '_NAME_' + random_number;
 };
 
-exports.cleanHarvest = function(params) {
-    console.log(params);
-};
-
-function generateRandomNames(name) {
-    return 'harvest_test_' + name + '_name_' + random_number;
-}
-
-function getID(results) {
+exports.getID = function(results) {
     if (results) {
         return JSON.parse(results).id;
     }
     return null;
-}
+};
+
+exports.getName = function(results) {
+    if (results) {
+        return JSON.parse(results).name;
+    }
+    return null;
+};
