@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Yaaqoub/node-harvest-v2.svg?branch=master)](https://travis-ci.org/Yaaqoub/node-harvest-v2)
 [![Coverage Status](https://coveralls.io/repos/github/Yaaqoub/node-harvest-v2/badge.svg?branch=master)](https://coveralls.io/github/Yaaqoub/node-harvest-v2?branch=master)
 
 # Node Harvest API V2
