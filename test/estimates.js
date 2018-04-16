@@ -1,12 +1,61 @@
 let assert = require('assert'),
-    config_auth = require('./config.auth');
+    config_auth = require('./config.auth'),
+    factory = require('./factory');
 
 let harvest = config_auth.harvest;
 
+const CLIENT_NAME = factory.generateRandomNames('CLIENT_');
+
+let CLIENT_ID = null,
+    ESTIMATE_ID = null;
+
 describe('Estimates API', function() {
+
+    before(async() => {
+        factory.cleanHarvestOptions();
+        const client = await harvest.clients.create({
+            'name': CLIENT_NAME,
+            'currency': 'EUR'
+        });
+
+        CLIENT_ID = factory.getID(client);
+    });
+
+    after(async() => {
+        factory.cleanHarvestOptions();
+        assert(CLIENT_ID);
+        await harvest.clients.delete(CLIENT_ID);
+    });
+
+    describe('Create an Estimate', function() {
+        it('should implement Create an Estimate method', (done) => {
+            assert.equal(typeof harvest.estimates.create, 'function');
+            done();
+        });
+
+        it('should Create an Estimate', async() => {
+            factory.cleanHarvestOptions();
+            const newEstimate = await harvest.estimates.create({
+                'client_id': CLIENT_ID,
+                'subject': 'Estimate subject example'
+            });
+
+            ESTIMATE_ID = factory.getID(newEstimate);
+            assert.equal(typeof ESTIMATE_ID, 'number', 'The response body should contain a id');
+        });
+    });
+
     describe('List All Estimates', function() {
         it('should implement return all Estimates method', (done) => {
             assert.equal(typeof harvest.estimates.list, 'function');
+            done();
+        });
+
+        it('should List all Estimates', (done) => {
+            factory.cleanHarvestOptions();
+            harvest.estimates.list().then((estimates) => {
+                assert(estimates);
+            });
             done();
         });
     });
@@ -16,12 +65,15 @@ describe('Estimates API', function() {
             assert.equal(typeof harvest.estimates.retrieve, 'function');
             done();
         });
-    });
 
-    describe('Create an Estimate', function() {
-        it('should implement Create an Estimate method', (done) => {
-            assert.equal(typeof harvest.estimates.create, 'function');
-            done();
+        it('should Retrieve an Estimate', async() => {
+            factory.cleanHarvestOptions();
+            assert(ESTIMATE_ID);
+
+            const theEstimate = await harvest.estimates.retrieve(ESTIMATE_ID);
+
+            assert(theEstimate);
+            assert.equal(factory.getID(theEstimate), ESTIMATE_ID);
         });
     });
 
@@ -30,12 +82,29 @@ describe('Estimates API', function() {
             assert.equal(typeof harvest.estimates.update, 'function');
             done();
         });
+
+        it('should Update an Estimate', async() => {
+            factory.cleanHarvestOptions();
+            assert(ESTIMATE_ID);
+
+            const updatedEstimate = await harvest.estimates.update(ESTIMATE_ID, {
+                subject: 'updated estimate subject example'
+            });
+
+            assert(updatedEstimate);
+        });
     });
 
     describe('Delete an Estimate', function() {
         it('should implement Delete an Estimate method', (done) => {
             assert.equal(typeof harvest.estimates.delete, 'function');
             done();
+        });
+
+        it('should Delete an Estimate', async() => {
+            factory.cleanHarvestOptions();
+            assert(ESTIMATE_ID);
+            await harvest.estimates.delete(ESTIMATE_ID);
         });
     });
 });

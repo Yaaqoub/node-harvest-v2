@@ -83,16 +83,15 @@ describe('Clients Contacts API', function() {
             done();
         });
 
-        it('should Update a client contact', (done) => {
+        it('should Update a client contact', async() => {
             factory.cleanHarvestOptions();
             assert(CONTACT_ID);
 
-            harvest.clientContacts.update(CONTACT_ID, {
+            const updatedContact = await harvest.clientContacts.update(CONTACT_ID, {
                 title: 'random title'
-            }).then((updatedContact) => {
-                assert(updatedContact);
             });
-            done();
+
+            assert(updatedContact);
         });
     });
 
@@ -102,11 +101,10 @@ describe('Clients Contacts API', function() {
             done();
         });
 
-        it('should Delete a client contact', (done) => {
+        it('should Delete a client contact', async() => {
             factory.cleanHarvestOptions();
             assert(CONTACT_ID);
-            harvest.clientContacts.delete(CONTACT_ID);
-            done();
+            await harvest.clientContacts.delete(CONTACT_ID);
         });
     });
 });

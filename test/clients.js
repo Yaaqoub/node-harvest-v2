@@ -48,15 +48,13 @@ describe('Clients API', function() {
             done();
         });
 
-        it('should retrieve a client', (done) => {
+        it('should retrieve a client', async() => {
             factory.cleanHarvestOptions();
             assert(CLIENT_ID);
-            harvest.clients.retrieve(CLIENT_ID).then((client) => {
-                assert(client);
-                assert.equal(factory.getID(client), CLIENT_ID);
-                assert.equal(factory.getName(client), CLIENT_NAME);
-            });
-            done();
+            const client = await harvest.clients.retrieve(CLIENT_ID);
+            assert(client);
+            assert.equal(factory.getID(client), CLIENT_ID);
+            assert.equal(factory.getName(client), CLIENT_NAME);
         });
     });
 
@@ -66,15 +64,14 @@ describe('Clients API', function() {
             done();
         });
 
-        it('should update a client', (done) => {
+        it('should update a client', async () => {
             factory.cleanHarvestOptions();
             assert(CLIENT_ID);
-            harvest.clients.update(CLIENT_ID, {
+            const client = await harvest.clients.update(CLIENT_ID, {
                 address: 'random address'
-            }).then((client) => {
-                assert(client);
             });
-            done();
+
+            assert(client);
         });
     });
 
@@ -84,11 +81,10 @@ describe('Clients API', function() {
             done();
         });
 
-        it('should Delete a client', (done) => {
+        it('should Delete a client', async() => {
             factory.cleanHarvestOptions();
             assert(CLIENT_ID);
-            harvest.clients.delete(CLIENT_ID);
-            done();
+            await harvest.clients.delete(CLIENT_ID);
         });
     });
 });
