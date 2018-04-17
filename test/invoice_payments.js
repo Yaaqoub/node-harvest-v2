@@ -24,18 +24,6 @@ describe('Invoice Payments API', function() {
         });
 
         CLIENT_ID = factory.getID(client);
-
-        /**
-         * Create New Invoice
-         */
-        factory.cleanHarvestOptions();
-        assert(CLIENT_ID);
-        const invoice = await harvest.invoices.create({
-            'client_id': CLIENT_ID,
-            'subject': 'Invoice subject example'
-        });
-
-        INVOICE_ID = factory.getID(invoice);
     });
 
     after(async() => {
@@ -61,6 +49,21 @@ describe('Invoice Payments API', function() {
         });
 
         it('should Create an Invoice Payment', async() => {
+            /**
+             * Create New Invoice
+             */
+            factory.cleanHarvestOptions();
+            assert(CLIENT_ID);
+            const invoice = await harvest.invoices.create({
+                'client_id': CLIENT_ID,
+                'subject': 'Invoice subject example'
+            });
+
+            INVOICE_ID = factory.getID(invoice);
+
+            /**
+             * Create New Payment
+             */
             factory.cleanHarvestOptions();
             assert(INVOICE_ID);
             const newInvoicePayment = await harvest.invoicePayments.create(INVOICE_ID, {
