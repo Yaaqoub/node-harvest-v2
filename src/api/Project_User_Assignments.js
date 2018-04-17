@@ -1,4 +1,4 @@
-let base = require('../mixins/AssignementBase.js');
+let base = require('../mixins/Base2.js');
 
 function Project_User_Assignments(options) {
     this.name = 'user_assignments';

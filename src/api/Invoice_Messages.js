@@ -1,9 +1,10 @@
-let base = require('../mixins/Base.js');
+let base = require('../mixins/Base2.js');
 let pick = require('lodash/pick.js');
+let request = require('request-promise');
 
 function Invoice_Messages(options) {
     this.name = 'messages';
-    this.baseUri = 'https://api.harvestapp.com/v2/invoices';
+    this.baseUri = 'https://api.harvestapp.com/v2/invoices/';
     this.options = options;
 }
 
