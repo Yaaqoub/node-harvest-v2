@@ -76,6 +76,10 @@ const config = {
     # or
     
     mocha
+
+    # or
+
+    npm run cover
     
 ## Methods
 If you want to display available params for each harvest api click on it, or click [here](https://help.getharvest.com/api-v2/) to see the whole api docs.
