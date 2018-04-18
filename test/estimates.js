@@ -51,12 +51,10 @@ describe('Estimates API', function() {
             done();
         });
 
-        it('should List all Estimates', (done) => {
+        it('should List all Estimates', async() => {
             factory.cleanHarvestOptions();
-            harvest.estimates.list().then((estimates) => {
-                assert(estimates);
-            });
-            done();
+            const estimates = await harvest.estimates.list();
+            assert(estimates);
         });
     });
 

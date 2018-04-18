@@ -33,12 +33,10 @@ describe('Clients API', function() {
             done();
         });
 
-        it('should list all clients', (done) => {
+        it('should list all clients', async () => {
             factory.cleanHarvestOptions();
-            harvest.clients.list().then((clients) => {
-                assert(clients);
-            });
-            done();
+            const clients = await harvest.clients.list();
+            assert(clients);
         });
     });
 

@@ -51,12 +51,10 @@ describe('Clients Contacts API', function() {
             done();
         });
 
-        it('should List all clients contacts', (done) => {
+        it('should List all clients contacts', async() => {
             factory.cleanHarvestOptions();
-            harvest.clientContacts.list().then((clientsContacts) => {
-                assert(clientsContacts);
-            });
-            done();
+            const clientsContacts = await harvest.clientContacts.list();
+            assert(clientsContacts);
         });
     });
 
@@ -65,33 +63,12 @@ describe('Clients Contacts API', function() {
             assert.equal(typeof harvest.clientContacts.retrieve, 'function');
             done();
         });
-
-        it('should Retrieve a client contact', async() => {
-            factory.cleanHarvestOptions();
-            assert(CONTACT_ID);
-
-            const theContact = await harvest.clientContacts.retrieve(CONTACT_ID);
-
-            assert(theContact);
-            assert.equal(factory.getID(theContact), CONTACT_ID);
-        });
     });
 
     describe('Update a contact', function() {
         it('should implement Update a contact method', function(done) {
             assert.equal(typeof harvest.clientContacts.update, 'function');
             done();
-        });
-
-        it('should Update a client contact', async() => {
-            factory.cleanHarvestOptions();
-            assert(CONTACT_ID);
-
-            const updatedContact = await harvest.clientContacts.update(CONTACT_ID, {
-                title: 'random title'
-            });
-
-            assert(updatedContact);
         });
     });
 

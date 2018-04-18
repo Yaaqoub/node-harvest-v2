@@ -11,13 +11,10 @@ describe('Company API', function() {
             done();
         });
 
-        it('should Retrieve a company', (done) => {
+        it('should Retrieve a company', async() => {
             factory.cleanHarvestOptions();
-
-            harvest.company.retrieve().then((theCompany) => {
-                assert(theCompany);
-            });
-            done();
+            const theCompany = await harvest.company.retrieve();
+            assert(theCompany);
         });
     });
 });

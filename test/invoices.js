@@ -50,12 +50,6 @@ describe('Invoices API', function() {
             assert.equal(typeof harvest.invoices.list, 'function');
             done();
         });
-
-        it('should List all Invoices', async() => {
-            factory.cleanHarvestOptions();
-            const invoices = await harvest.invoices.list();
-            assert(invoices);
-        });
     });
 
     describe('Retrieve an invoice', function() {
@@ -63,33 +57,12 @@ describe('Invoices API', function() {
             assert.equal(typeof harvest.invoices.retrieve, 'function');
             done();
         });
-
-        it('should Retrieve an invoice', async() => {
-            factory.cleanHarvestOptions();
-            assert(INVOICE_ID);
-
-            const theInvoice = await harvest.invoices.retrieve(INVOICE_ID);
-
-            assert(theInvoice);
-            assert.equal(factory.getID(theInvoice), INVOICE_ID);
-        });
     });
 
     describe('Update an invoice', function() {
         it('should implement Update an invoice method', (done) => {
             assert.equal(typeof harvest.invoices.update, 'function');
             done();
-        });
-
-        it('should Update an invoice', async() => {
-            factory.cleanHarvestOptions();
-            assert(INVOICE_ID);
-
-            const updatedInvoice = await harvest.invoices.update(INVOICE_ID, {
-                subject: 'updated estimate subject example'
-            });
-
-            assert(updatedInvoice);
         });
     });
 
