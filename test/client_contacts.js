@@ -50,12 +50,6 @@ describe('Clients Contacts API', function() {
             assert.equal(typeof harvest.clientContacts.list, 'function');
             done();
         });
-
-        it('should List all clients contacts', async() => {
-            factory.cleanHarvestOptions();
-            const clientsContacts = await harvest.clientContacts.list();
-            assert(clientsContacts);
-        });
     });
 
     describe('Retrieve a contact', function() {

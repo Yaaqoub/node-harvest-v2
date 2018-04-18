@@ -5,11 +5,9 @@ let assert = require('assert'),
 let harvest = config_auth.harvest;
 
 const CLIENT_NAME = factory.generateRandomNames('CLIENT_');
-const CLIENT_CONTACT_EMAIL = 'semlali.yaaqoub@gmail.com';
 
 let CLIENT_ID = null,
-    INVOICE_ID = null,
-    INVOICE_MESSAGE_ID = null;
+    INVOICE_ID = null;
 
 describe('Invoice Messages API', function() {
 
