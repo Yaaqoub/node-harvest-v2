@@ -4,11 +4,15 @@ const base2 = {
 
     list(id, cb) {
         this.options.url = this.baseUri + id + '/' + this.name;
+        this.options.method = 'GET';
+        this.options.body = undefined;
         return request(this.options, cb);
     },
 
     retrieve(id, otherId, cb) {
         this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
+        this.options.method = 'GET';
+        this.options.body = undefined;
         return request(this.options, cb);
     },
 
