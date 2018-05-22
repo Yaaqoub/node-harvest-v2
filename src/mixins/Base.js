@@ -4,6 +4,8 @@ const base = {
 
     list(cb) {
         this.options.url = this.baseUri;
+        this.options.method = 'GET';
+        this.options.body = undefined;
         return request(this.options, cb);
     },
 
@@ -14,6 +16,8 @@ const base = {
             this.options.url = this.baseUri;
         }
 
+        this.options.method = 'GET';
+        this.options.body = undefined;
         return request(this.options, cb);
     },
 
@@ -29,7 +33,7 @@ const base = {
         this.options.method = 'PATCH';
         this.options.body = JSON.stringify(params);
         return request(this.options, cb);
-   },
+    },
 
     delete(id, cb) {
         this.options.url = this.baseUri + '/' + id;
