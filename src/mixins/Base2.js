@@ -4,11 +4,15 @@ const base2 = {
 
     list(id, cb) {
         this.options.url = this.baseUri + id + '/' + this.name;
+        this.options.method = 'GET';
+        this.options.body = '';
         return request(this.options, cb);
     },
 
     retrieve(id, otherId, cb) {
         this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
+        this.options.method = 'GET';
+        this.options.body = '';
         return request(this.options, cb);
     },
 
@@ -29,6 +33,7 @@ const base2 = {
     delete(id, otherId, cb) {
         this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
         this.options.method = 'DELETE';
+        this.options.body = '';
         return request(this.options, cb);
     }
 };

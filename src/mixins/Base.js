@@ -4,6 +4,8 @@ const base = {
 
     list(cb) {
         this.options.url = this.baseUri;
+        this.options.method = 'GET';
+        this.options.body = '';
         return request(this.options, cb);
     },
 
@@ -13,6 +15,8 @@ const base = {
         } else {
             this.options.url = this.baseUri;
         }
+        this.options.method = 'GET';
+        this.options.body = '';
 
         return request(this.options, cb);
     },
@@ -34,6 +38,7 @@ const base = {
     delete(id, cb) {
         this.options.url = this.baseUri + '/' + id;
         this.options.method = 'DELETE';
+        this.options.body = '';
         return request(this.options, cb);
     }
 };
