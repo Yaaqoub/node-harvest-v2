@@ -9,6 +9,11 @@ describe('Projects API', function() {
             assert.equal(typeof harvest.projects.list, 'function');
             done();
         });
+
+        it('should implement ListBy all projects method', (done) => {
+            assert.equal(typeof harvest.projects.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a project', function() {
