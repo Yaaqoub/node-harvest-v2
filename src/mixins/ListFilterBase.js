@@ -1,6 +1,6 @@
 let link = "?";
 let request = require('request-promise');
-const listParams = ['user_id', 'client_id', 'project_id', 'is_billed', 'is_running', 'updated_since', 'from', 'to', 'page', 'per_page'];
+const listParams = ['user_id', 'client_id', 'project_id', 'is_billed', 'is_running', 'updated_since', 'from', 'to', 'page', 'per_page', 'is_active'];
 
 const listFilterBase = {
 
