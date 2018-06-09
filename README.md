@@ -47,6 +47,25 @@ harvest.clients.list(function(error, response, results) {
 });
 ```
 
+Most of the APIs have `list` and `listBy` methods:
+
+-  list : we use it to list all results.
+-  listBy : we use it to list results by a number of params (Example with Clients api):
+    ```js
+    harvest.clients.listBy({
+        per_page:'10',
+        page: '2'
+    }).then((result) => {
+        console.log(result);
+    });
+    ```
+    - Params (Check [Harvest API](https://help.getharvest.com/api-v2/) to know the use of every param):
+        ```js
+        {"user_id", "client_id", "project_id", "is_billed",
+         "is_running", "updated_since", "from", "to",
+         "page", "per_page", "is_active"}
+        ```
+
 All three methods return the body of the response. To get the full response with two first methods set resolveWithFullResponse to true before using the method:
 ```js
 harvest.options.resolveWithFullResponse = true;
@@ -86,6 +105,7 @@ If you want to display available params for each harvest api click on it, or cli
 
 - [Clients](https://help.getharvest.com/api-v2/clients-api/clients/clients/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(clientID, callback)`
     - `create({params}, callback)`
     - `update(clientID, {params}, callback)`
@@ -98,6 +118,7 @@ If you want to display available params for each harvest api click on it, or cli
 
 - [Client Contacts](https://help.getharvest.com/api-v2/clients-api/clients/contacts/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(clientContactID, callback)`
     - `create({params}, callback)`
     - `update(clientContactID, {params}, callback)`
@@ -116,6 +137,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Invoices](https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(invoiceID, callback)`
     - `create({params}, callback)`
     - `update(invoiceID, {params}, callback)`
@@ -127,6 +149,7 @@ If you want to display available params for each harvest api click on it, or cli
         
 - [Invoice Messages](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-messages/)
     - `list(invoiceID, callback)`
+    - `listBy({params}, callback)`
     - `create(invoiceID, {params}, callback)`
     - `delete(invoiceID, messageID, callback)`
     - `mark(invoiceID, params, callback)`
@@ -137,6 +160,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Invoice Payments](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments/)
     - `list(invoiceID, callback)`
+    - `listBy({params}, callback)`
     - `create(invoiceID, {params}, callback)`
     - `delete(invoiceID, paymentID, callback)`
     - `Example: `
@@ -146,6 +170,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Invoice Item Categories](https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-item-categories/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(invoiceItemCatID, callback)`
     - `create({params}, callback)`
     - `update(invoiceItemCatID, {params}, callback)`
@@ -166,6 +191,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Estimates](https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(estimateID, callback)`
     - `create({params}, callback)`
     - `update(estimateID, {params}, callback)`
@@ -186,6 +212,7 @@ If you want to display available params for each harvest api click on it, or cli
         
 - [Estimate Messages](https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/)
     - `list(estimateID, callback)`
+    - `listBy({params}, callback)`
     - `create(estimateID, {params}, callback)`
     - `delete(estimateID, messageID, callback)`
     - `mark(estimateID, {params}, callback)`
@@ -196,6 +223,7 @@ If you want to display available params for each harvest api click on it, or cli
         
 - [Estimate Item Categories](https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(estimateItemCatID, callback)`
     - `create({params}, callback)`
     - `update(estimateItemCatID, {params}, callback)`
@@ -207,6 +235,7 @@ If you want to display available params for each harvest api click on it, or cli
 
 - [Expenses](https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(expenseID, callback)`
     - `create({params}, callback)`
     - `update(expenseID, {params}, callback)`
@@ -218,6 +247,7 @@ If you want to display available params for each harvest api click on it, or cli
             
 - [Expense Categories](https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(expenseCategoryID, callback)`
     - `create({params}, callback)`
     - `update(expenseCategoryID, {params}, callback)`
@@ -229,6 +259,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Tasks](https://help.getharvest.com/api-v2/tasks-api/tasks/tasks/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(taskID, callback)`
     - `create({params}, callback)`
     - `update(taskID, {params}, callback)`
@@ -254,6 +285,7 @@ If you want to display available params for each harvest api click on it, or cli
 
 - [Projects](https://help.getharvest.com/api-v2/projects-api/projects/projects/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(projectID, callback)`
     - `create({params}, callback)`
     - `update(projectID, {params}, callback)`
@@ -265,6 +297,7 @@ If you want to display available params for each harvest api click on it, or cli
         
 - [Project User Assignments](https://help.getharvest.com/api-v2/projects-api/projects/user-assignments/)
     - `list(projectID, callback)`
+    - `listBy({params}, callback)`
     - `retrieve(projectID, userAssignmentsID, callback)`
     - `create(projectID, {params}, callback)`
     - `update(projectID, userAssignmentsID, {params}, callback)`
@@ -276,6 +309,7 @@ If you want to display available params for each harvest api click on it, or cli
         
 - [Project Task Assignments](https://help.getharvest.com/api-v2/projects-api/projects/task-assignments/)
     - `list(projectID, callback)`
+    - `listBy({params}, callback)`
     - `retrieve(projectID, taskAssignmentsID, callback)`
     - `create(projectID, {params}, callback)`
     - `update(projectID, taskAssignmentsID, {params}, callback)`
@@ -287,6 +321,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Roles](https://help.getharvest.com/api-v2/projects-api/projects/projects/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(roleID, callback)`
     - `create({params}, callback)`
     - `update(roleID, {params}, callback)`
@@ -298,6 +333,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [Users](https://help.getharvest.com/api-v2/users-api/users/users/)
     - `list(callback)`
+    - `listBy({params}, callback)`
     - `retrieve(theUser, callback)`   // for the 'theUser' param, put: me or userID
     - `create({params}, callback)`
     - `update(userID, {params}, callback)`
@@ -309,6 +345,7 @@ If you want to display available params for each harvest api click on it, or cli
     
 - [User Project Assignments](https://help.getharvest.com/api-v2/users-api/users/project-assignments/)
     - `list(theUser, callback)`  // me or userID
+    - `listBy({params}, callback)`
     - `Example: `
         ```js
         harvest.userProjectAssignments.list()
