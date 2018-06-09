@@ -1,4 +1,6 @@
-let base = require('../mixins/Base.js');
+let base = require('../mixins/Base.js'),
+    filterBase = require('../mixins/ListFilterBase'),
+    pick = require('lodash/pick.js');
 
 function Tasks(options) {
     this.name = 'tasks';
@@ -7,5 +9,7 @@ function Tasks(options) {
 }
 
 Object.assign(Tasks.prototype, base);
+
+Object.assign(Tasks.prototype, pick(filterBase, ['listBy']));
 
 module.exports = Tasks;

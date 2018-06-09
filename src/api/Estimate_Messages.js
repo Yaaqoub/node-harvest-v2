@@ -1,4 +1,6 @@
-let base = require('../mixins/Base.js');
+let base = require('../mixins/Base.js'),
+    filterBase = require('../mixins/ListFilterBase');
+
 let pick = require('lodash/pick.js');
 
 function Estimate_Messages(options) {
@@ -8,6 +10,8 @@ function Estimate_Messages(options) {
 }
 
 Object.assign(Estimate_Messages.prototype, pick(base, ['list', 'create', 'delete']));
+
+Object.assign(Estimate_Messages.prototype, pick(filterBase, ['listBy']));
 
 Estimate_Messages.prototype.mark = function(estimate_id, params, cb) {
     this.options.url = this.baseUri + '/' + estimate_id + '/' + this.name;

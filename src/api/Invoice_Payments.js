@@ -1,4 +1,6 @@
-let base = require('../mixins/Base2.js');
+let base = require('../mixins/Base2.js'),
+    filterBase = require('../mixins/ListFilterBase');
+
 let pick = require('lodash/pick.js');
 
 function Invoice_Payments(options) {
@@ -8,5 +10,7 @@ function Invoice_Payments(options) {
 }
 
 Object.assign(Invoice_Payments.prototype, pick(base, ['list', 'create', 'delete']));
+
+Object.assign(Invoice_Payments.prototype, pick(filterBase, ['listBy']));
 
 module.exports = Invoice_Payments;
