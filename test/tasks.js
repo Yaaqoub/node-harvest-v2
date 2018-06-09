@@ -9,6 +9,11 @@ describe('Tasks API', function() {
             assert.equal(typeof harvest.tasks.list, 'function');
             done();
         });
+
+        it('should implement ListBy tasks method', (done) => {
+            assert.equal(typeof harvest.tasks.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a tasks', function() {

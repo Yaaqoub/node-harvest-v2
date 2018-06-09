@@ -9,6 +9,11 @@ describe('Users API', function() {
             assert.equal(typeof harvest.users.list, 'function');
             done();
         });
+
+        it('should implement ListBy users method', (done) => {
+            assert.equal(typeof harvest.users.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a user', function() {

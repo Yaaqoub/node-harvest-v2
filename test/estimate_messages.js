@@ -9,6 +9,11 @@ describe('Estimate Messages API', function() {
             assert.equal(typeof harvest.estimateMessages.list, 'function');
             done();
         });
+
+        it('should implement ListBy Estimate Messages method', (done) => {
+            assert.equal(typeof harvest.estimateMessages.listBy, 'function');
+            done();
+        });
     });
 
     describe('Create Estimate Message', function() {

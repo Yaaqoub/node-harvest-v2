@@ -9,6 +9,11 @@ describe('Estimate Item Categories API', function() {
             assert.equal(typeof harvest.estimateItemCategories.list, 'function');
             done();
         });
+
+        it('should implement ListBy Estimate Item Categories method', (done) => {
+            assert.equal(typeof harvest.estimateItemCategories.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve an Estimate Item Categories', function() {

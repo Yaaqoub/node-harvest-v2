@@ -38,6 +38,11 @@ describe('Clients API', function() {
             const clients = await harvest.clients.list();
             assert(clients);
         });
+
+        it('should implement ListBy clients method', (done) => {
+            assert.equal(typeof harvest.clients.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a client', function() {

@@ -10,7 +10,7 @@ describe('Projects API', function() {
             done();
         });
 
-        it('should implement ListBy all projects method', (done) => {
+        it('should implement ListBy projects method', (done) => {
             assert.equal(typeof harvest.projects.listBy, 'function');
             done();
         });

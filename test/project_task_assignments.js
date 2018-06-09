@@ -9,6 +9,11 @@ describe('Project Task Assignments API', function() {
             assert.equal(typeof harvest.projectTaskAssignments.list, 'function');
             done();
         });
+
+        it('should implement ListBy task assignments method', (done) => {
+            assert.equal(typeof harvest.projectTaskAssignments.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a task assignment', function() {

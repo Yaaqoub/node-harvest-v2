@@ -9,6 +9,11 @@ describe('Expense Categories API', function() {
             assert.equal(typeof harvest.expenseCategories.list, 'function');
             done();
         });
+
+        it('should implement ListBy expense categories method', (done) => {
+            assert.equal(typeof harvest.expenseCategories.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve an expense category', function() {

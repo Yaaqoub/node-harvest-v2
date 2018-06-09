@@ -56,6 +56,11 @@ describe('Estimates API', function() {
             const estimates = await harvest.estimates.list();
             assert(estimates);
         });
+
+        it('should implement ListBy Estimates method', (done) => {
+            assert.equal(typeof harvest.estimates.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve an Estimate', function() {

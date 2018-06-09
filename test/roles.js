@@ -9,6 +9,11 @@ describe('Roles API', function() {
             assert.equal(typeof harvest.roles.list, 'function');
             done();
         });
+
+        it('should implement ListBy roles method', (done) => {
+            assert.equal(typeof harvest.roles.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve a role', function() {

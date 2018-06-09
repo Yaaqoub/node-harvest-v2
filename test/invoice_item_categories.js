@@ -9,6 +9,11 @@ describe('Invoice Item Categories API', function() {
             assert.equal(typeof harvest.invoiceItemCategories.list, 'function');
             done();
         });
+
+        it('should implement ListBy Invoice Item Categories method', (done) => {
+            assert.equal(typeof harvest.invoiceItemCategories.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve an Invoice Item Categories', function() {

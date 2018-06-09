@@ -71,6 +71,11 @@ describe('Invoice Messages API', function() {
             const invoiceMessages = await harvest.invoiceMessages.list(INVOICE_ID);
             assert(invoiceMessages);
         });
+
+        it('should implement ListBy Invoice Messages method', (done) => {
+            assert.equal(typeof harvest.invoiceMessages.listBy, 'function');
+            done();
+        });
     });
 
     describe('Mark an Invoice', function() {

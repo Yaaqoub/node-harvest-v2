@@ -17,6 +17,11 @@ describe('Invoice Payments API', function() {
             assert.equal(typeof harvest.invoicePayments.list, 'function');
             done();
         });
+
+        it('should implement ListBy Invoice Payments method', (done) => {
+            assert.equal(typeof harvest.invoicePayments.listBy, 'function');
+            done();
+        });
     });
 
     describe('Delete Invoice Payments', function() {

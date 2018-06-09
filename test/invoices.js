@@ -50,6 +50,11 @@ describe('Invoices API', function() {
             assert.equal(typeof harvest.invoices.list, 'function');
             done();
         });
+
+        it('should implement ListBy Invoices method', (done) => {
+            assert.equal(typeof harvest.invoices.listBy, 'function');
+            done();
+        });
     });
 
     describe('Retrieve an invoice', function() {
