@@ -1,6 +1,5 @@
 let assert = require('assert'),
-    config_auth = require('./config.auth'),
-    factory = require('./factory');
+    config_auth = require('./config.auth');
 
 let harvest = config_auth.harvest;
 
@@ -12,7 +11,6 @@ describe('Company API', function() {
         });
 
         it('should Retrieve a company', async() => {
-            factory.cleanHarvestOptions();
             const theCompany = await harvest.company.retrieve();
             assert(theCompany);
         });

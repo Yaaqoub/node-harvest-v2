@@ -13,7 +13,6 @@ let CLIENT_ID = null,
 describe('Clients Contacts API', function() {
 
     before(async() => {
-        factory.cleanHarvestOptions();
         const client = await harvest.clients.create({
             'name': CLIENT_NAME,
             'currency': 'EUR'
@@ -23,7 +22,6 @@ describe('Clients Contacts API', function() {
     });
 
     after(async() => {
-        factory.cleanHarvestOptions();
         await harvest.clients.delete(CLIENT_ID);
     });
 
@@ -34,7 +32,6 @@ describe('Clients Contacts API', function() {
         });
 
         it('should Create a client contact', async() => {
-            factory.cleanHarvestOptions();
             const clientContact = await harvest.clientContacts.create({
                 'client_id': CLIENT_ID,
                 'first_name': CLIENT_CONTACT_NAME
@@ -78,7 +75,6 @@ describe('Clients Contacts API', function() {
         });
 
         it('should Delete a client contact', async() => {
-            factory.cleanHarvestOptions();
             assert(CONTACT_ID);
             await harvest.clientContacts.delete(CONTACT_ID);
         });

@@ -3,10 +3,12 @@ let assert = require('assert'),
 
 let harvest = config_auth.harvest;
 
+
 describe('Time Entries API', function() {
-    describe('List a specific time entries', function() {
-        it('should implement List a specific time entries method', (done) => {
-            assert.equal(typeof harvest.timeEntries.list, 'function');
+
+    describe('Create a time entry', function() {
+        it('should implement Create a time entry method', (done) => {
+            assert.equal(typeof harvest.timeEntries.create, 'function');
             done();
         });
     });
@@ -26,13 +28,6 @@ describe('Time Entries API', function() {
     describe('Retrieve a time entry', function() {
         it('should implement Retrieve a time entry method', (done) => {
             assert.equal(typeof harvest.timeEntries.retrieve, 'function');
-            done();
-        });
-    });
-
-    describe('Create a time entry', function() {
-        it('should implement Create a time entry method', (done) => {
-            assert.equal(typeof harvest.timeEntries.create, 'function');
             done();
         });
     });

@@ -15,7 +15,6 @@ describe('Invoice Messages API', function() {
         /**
          * Create New Client
          */
-        factory.cleanHarvestOptions();
         const client = await harvest.clients.create({
             'name': CLIENT_NAME,
             'currency': 'EUR'
@@ -26,7 +25,6 @@ describe('Invoice Messages API', function() {
         /**
          * Create New Invoice
          */
-        factory.cleanHarvestOptions();
         assert(CLIENT_ID);
         const invoice = await harvest.invoices.create({
             'client_id': CLIENT_ID,
@@ -40,14 +38,12 @@ describe('Invoice Messages API', function() {
         /**
          * Delete an invoice
          */
-        factory.cleanHarvestOptions();
         assert(INVOICE_ID);
         await harvest.invoices.delete(INVOICE_ID);
 
         /**
          * Delete a Client
          */
-        factory.cleanHarvestOptions();
         assert(CLIENT_ID);
         await harvest.clients.delete(CLIENT_ID);
     });
@@ -66,7 +62,6 @@ describe('Invoice Messages API', function() {
         });
 
         it('should List all Invoice Messages', async() => {
-            factory.cleanHarvestOptions();
             assert(INVOICE_ID);
             const invoiceMessages = await harvest.invoiceMessages.list(INVOICE_ID);
             assert(invoiceMessages);
@@ -85,7 +80,6 @@ describe('Invoice Messages API', function() {
         });
 
         it('should Mark an Invoice', async() => {
-            factory.cleanHarvestOptions();
             assert(INVOICE_ID);
             const markedInvoice = await harvest.invoiceMessages.mark(INVOICE_ID, {
                 'event_type': 'send'

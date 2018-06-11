@@ -15,8 +15,6 @@ describe('Clients API', function() {
         });
 
         it('should Create a client', async() => {
-            factory.cleanHarvestOptions();
-
             const client = await harvest.clients.create({
                 'name': CLIENT_NAME,
                 'currency': 'EUR'
@@ -34,7 +32,6 @@ describe('Clients API', function() {
         });
 
         it('should list all clients', async () => {
-            factory.cleanHarvestOptions();
             const clients = await harvest.clients.list();
             assert(clients);
         });
@@ -42,6 +39,14 @@ describe('Clients API', function() {
         it('should implement ListBy clients method', (done) => {
             assert.equal(typeof harvest.clients.listBy, 'function');
             done();
+        });
+
+        it('should ListBy all clients', async () => {
+            const clients = await harvest.clients.listBy({
+                per_page:'10',
+                page: '2'
+            });
+            assert(clients);
         });
     });
 
@@ -52,7 +57,6 @@ describe('Clients API', function() {
         });
 
         it('should retrieve a client', async() => {
-            factory.cleanHarvestOptions();
             assert(CLIENT_ID);
             const client = await harvest.clients.retrieve(CLIENT_ID);
             assert(client);
@@ -68,7 +72,6 @@ describe('Clients API', function() {
         });
 
         it('should update a client', async () => {
-            factory.cleanHarvestOptions();
             assert(CLIENT_ID);
             const client = await harvest.clients.update(CLIENT_ID, {
                 address: 'random address'
@@ -85,7 +88,6 @@ describe('Clients API', function() {
         });
 
         it('should Delete a client', async() => {
-            factory.cleanHarvestOptions();
             assert(CLIENT_ID);
             await harvest.clients.delete(CLIENT_ID);
         });

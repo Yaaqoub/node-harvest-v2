@@ -12,7 +12,6 @@ let CLIENT_ID = null,
 describe('Estimates API', function() {
 
     before(async() => {
-        factory.cleanHarvestOptions();
         const client = await harvest.clients.create({
             'name': CLIENT_NAME,
             'currency': 'EUR'
@@ -22,7 +21,6 @@ describe('Estimates API', function() {
     });
 
     after(async() => {
-        factory.cleanHarvestOptions();
         assert(CLIENT_ID);
         await harvest.clients.delete(CLIENT_ID);
     });
@@ -34,7 +32,6 @@ describe('Estimates API', function() {
         });
 
         it('should Create an Estimate', async() => {
-            factory.cleanHarvestOptions();
             const newEstimate = await harvest.estimates.create({
                 'client_id': CLIENT_ID,
                 'subject': 'Estimate subject example'
@@ -52,7 +49,6 @@ describe('Estimates API', function() {
         });
 
         it('should List all Estimates', async() => {
-            factory.cleanHarvestOptions();
             const estimates = await harvest.estimates.list();
             assert(estimates);
         });
@@ -70,7 +66,6 @@ describe('Estimates API', function() {
         });
 
         it('should Retrieve an Estimate', async() => {
-            factory.cleanHarvestOptions();
             assert(ESTIMATE_ID);
 
             const theEstimate = await harvest.estimates.retrieve(ESTIMATE_ID);
@@ -87,7 +82,6 @@ describe('Estimates API', function() {
         });
 
         it('should Update an Estimate', async() => {
-            factory.cleanHarvestOptions();
             assert(ESTIMATE_ID);
 
             const updatedEstimate = await harvest.estimates.update(ESTIMATE_ID, {
@@ -105,7 +99,6 @@ describe('Estimates API', function() {
         });
 
         it('should Delete an Estimate', async() => {
-            factory.cleanHarvestOptions();
             assert(ESTIMATE_ID);
             await harvest.estimates.delete(ESTIMATE_ID);
         });

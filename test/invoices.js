@@ -12,7 +12,6 @@ let CLIENT_ID = null,
 describe('Invoices API', function() {
 
     before(async() => {
-        factory.cleanHarvestOptions();
         const client = await harvest.clients.create({
             'name': CLIENT_NAME,
             'currency': 'EUR'
@@ -22,7 +21,6 @@ describe('Invoices API', function() {
     });
 
     after(async() => {
-        factory.cleanHarvestOptions();
         assert(CLIENT_ID);
         await harvest.clients.delete(CLIENT_ID);
     });
@@ -34,7 +32,6 @@ describe('Invoices API', function() {
         });
 
         it('should Create an invoice', async() => {
-            factory.cleanHarvestOptions();
             const newInvoice = await harvest.invoices.create({
                 'client_id': CLIENT_ID,
                 'subject': 'Invoice subject example'
@@ -78,7 +75,6 @@ describe('Invoices API', function() {
         });
 
         it('should Delete an invoice', async() => {
-            factory.cleanHarvestOptions();
             assert(INVOICE_ID);
             await harvest.invoices.delete(INVOICE_ID);
         });
