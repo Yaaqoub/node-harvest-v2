@@ -106,10 +106,10 @@ describe('Project User Assignments API', function() {
             done();
         });
 
-        it('should Update a user assignment', async() => {
+        it('should Delete a user assignment', async() => {
             assert(PROJECT_ID);
             assert(USER_ASSIGNMENT_ID);
-            await harvest.projectUserAssignments.update(PROJECT_ID, USER_ASSIGNMENT_ID);
+            await harvest.projectUserAssignments.delete(PROJECT_ID, USER_ASSIGNMENT_ID);
         });
     });
 });
