@@ -4,25 +4,24 @@ let assert = require('assert'),
 
 let harvest = config_auth.harvest;
 
-const CLIENT_NAME = factory.generateRandomNames('CLIENT_');
-const CLIENT_CONTACT_NAME = factory.generateRandomNames('CLIENT_CONTACT');
-
-let CLIENT_ID = null,
-    CONTACT_ID = null;
+let clientContactsData = {};
 
 describe('Clients Contacts API', function() {
 
     before(async() => {
+        clientContactsData.CLIENT_NAME = factory.generateRandomNames('CLIENT_');
+        clientContactsData.CLIENT_CONTACT_NAME = factory.generateRandomNames('CLIENT_CONTACT');
+
         const client = await harvest.clients.create({
-            'name': CLIENT_NAME,
+            'name': clientContactsData.CLIENT_NAME,
             'currency': 'EUR'
         });
 
-        CLIENT_ID = factory.getID(client);
+        clientContactsData.CLIENT_ID = factory.getID(client);
     });
 
     after(async() => {
-        await harvest.clients.delete(CLIENT_ID);
+        await harvest.clients.delete(clientContactsData.CLIENT_ID);
     });
 
     describe('Create a client contact', function() {
@@ -33,12 +32,12 @@ describe('Clients Contacts API', function() {
 
         it('should Create a client contact', async() => {
             const clientContact = await harvest.clientContacts.create({
-                'client_id': CLIENT_ID,
-                'first_name': CLIENT_CONTACT_NAME
+                'client_id': clientContactsData.CLIENT_ID,
+                'first_name': clientContactsData.CLIENT_CONTACT_NAME
             });
 
-            CONTACT_ID = factory.getID(clientContact);
-            assert.equal(typeof CONTACT_ID, 'number', 'The response body should contain a id');
+            clientContactsData.CONTACT_ID = factory.getID(clientContact);
+            assert.equal(typeof clientContactsData.CONTACT_ID, 'number', 'The response body should contain a id');
         });
     });
 
@@ -46,6 +45,11 @@ describe('Clients Contacts API', function() {
         it('should implement List all contacts method', function(done) {
             assert.equal(typeof harvest.clientContacts.list, 'function');
             done();
+        });
+
+        it('should List all contacts', async() => {
+            const clientContact = await harvest.clientContacts.list();
+            assert(clientContact);
         });
 
         it('should implement ListBy contacts method', (done) => {
@@ -58,6 +62,13 @@ describe('Clients Contacts API', function() {
         it('should implement Retrieve a contact method', function(done) {
             assert.equal(typeof harvest.clientContacts.retrieve, 'function');
             done();
+        });
+
+        it('should retrieve a contact', async() => {
+            assert(clientContactsData.CONTACT_ID);
+            const clientContact = await harvest.clientContacts.retrieve(clientContactsData.CONTACT_ID);
+            assert(clientContact);
+            assert.equal(factory.getID(clientContact), clientContactsData.CONTACT_ID);
         });
     });
 
@@ -75,8 +86,8 @@ describe('Clients Contacts API', function() {
         });
 
         it('should Delete a client contact', async() => {
-            assert(CONTACT_ID);
-            await harvest.clientContacts.delete(CONTACT_ID);
+            assert(clientContactsData.CONTACT_ID);
+            await harvest.clientContacts.delete(clientContactsData.CONTACT_ID);
         });
     });
 });

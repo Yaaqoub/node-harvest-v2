@@ -4,10 +4,19 @@ let assert = require('assert'),
 
 let harvest = config_auth.harvest;
 
-const CLIENT_NAME = factory.generateRandomNames('CLIENT');
-let CLIENT_ID = null;
+let clientData = {};
 
 describe('Clients API', function() {
+    before((done) => {
+        clientData.CLIENT_NAME = factory.generateRandomNames('CLIENT');
+        done();
+    });
+
+    after((done) => {
+        clientData = {};
+        done();
+    });
+
     describe('Create a client', function() {
         it('should implement Create a client method', (done) => {
             assert.equal(typeof harvest.clients.create, 'function');
@@ -16,12 +25,12 @@ describe('Clients API', function() {
 
         it('should Create a client', async() => {
             const client = await harvest.clients.create({
-                'name': CLIENT_NAME,
+                'name': clientData.CLIENT_NAME,
                 'currency': 'EUR'
             });
 
-            CLIENT_ID = factory.getID(client);
-            assert.equal(typeof CLIENT_ID, 'number', 'The response body should contain a id');
+            clientData.CLIENT_ID = factory.getID(client);
+            assert.equal(typeof clientData.CLIENT_ID, 'number', 'The response body should contain a id');
         });
     });
 
@@ -57,11 +66,11 @@ describe('Clients API', function() {
         });
 
         it('should retrieve a client', async() => {
-            assert(CLIENT_ID);
-            const client = await harvest.clients.retrieve(CLIENT_ID);
+            assert(clientData.CLIENT_ID);
+            const client = await harvest.clients.retrieve(clientData.CLIENT_ID);
             assert(client);
-            assert.equal(factory.getID(client), CLIENT_ID);
-            assert.equal(factory.getName(client), CLIENT_NAME);
+            assert.equal(factory.getID(client), clientData.CLIENT_ID);
+            assert.equal(factory.getName(client), clientData.CLIENT_NAME);
         });
     });
 
@@ -72,11 +81,10 @@ describe('Clients API', function() {
         });
 
         it('should update a client', async () => {
-            assert(CLIENT_ID);
-            const client = await harvest.clients.update(CLIENT_ID, {
+            assert(clientData.CLIENT_ID);
+            const client = await harvest.clients.update(clientData.CLIENT_ID, {
                 address: 'random address'
             });
-
             assert(client);
         });
     });
@@ -88,8 +96,8 @@ describe('Clients API', function() {
         });
 
         it('should Delete a client', async() => {
-            assert(CLIENT_ID);
-            await harvest.clients.delete(CLIENT_ID);
+            assert(clientData.CLIENT_ID);
+            await harvest.clients.delete(clientData.CLIENT_ID);
         });
     });
 });
