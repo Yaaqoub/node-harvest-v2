@@ -19,6 +19,7 @@ Invoice_Messages.prototype.mark = function(invoice_id, params, cb) {
     this.options.url = this.baseUri + invoice_id + '/' + this.name;
     this.options.method = 'POST';
     this.options.body = JSON.stringify(params);
+    this.options.json = false;
 
     return request(this.options, cb);
 };

@@ -68,7 +68,7 @@ describe('Clients Contacts API', function() {
             assert(clientContactsData.CONTACT_ID);
             const clientContact = await harvest.clientContacts.retrieve(clientContactsData.CONTACT_ID);
             assert(clientContact);
-            assert.equal(factory.getID(clientContact), clientContactsData.CONTACT_ID);
+            assert.equal(clientContact.id, clientContactsData.CONTACT_ID);
         });
     });
 

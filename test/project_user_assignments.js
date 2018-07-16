@@ -16,7 +16,7 @@ describe('Project User Assignments API', function() {
 
     before(async() => {
         const theUser = await harvest.users.retrieve('me');
-        USER_ID = factory.getID(theUser);
+        USER_ID = theUser.id;
 
         const theClient = await harvest.clients.create({
             name: CLIENT_NAME

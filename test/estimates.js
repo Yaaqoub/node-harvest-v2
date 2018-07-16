@@ -71,7 +71,7 @@ describe('Estimates API', function() {
             const theEstimate = await harvest.estimates.retrieve(ESTIMATE_ID);
 
             assert(theEstimate);
-            assert.equal(factory.getID(theEstimate), ESTIMATE_ID);
+            assert.equal(theEstimate.id, ESTIMATE_ID);
         });
     });
 

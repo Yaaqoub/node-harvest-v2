@@ -24,12 +24,14 @@ describe('Clients API', function() {
         });
 
         it('should Create a client', async() => {
+
             const client = await harvest.clients.create({
-                'name': clientData.CLIENT_NAME,
-                'currency': 'EUR'
+                name: clientData.CLIENT_NAME,
+                currency: 'EUR'
             });
 
             clientData.CLIENT_ID = factory.getID(client);
+            console.log(client.id);
             assert.equal(typeof clientData.CLIENT_ID, 'number', 'The response body should contain a id');
         });
     });
@@ -69,8 +71,8 @@ describe('Clients API', function() {
             assert(clientData.CLIENT_ID);
             const client = await harvest.clients.retrieve(clientData.CLIENT_ID);
             assert(client);
-            assert.equal(factory.getID(client), clientData.CLIENT_ID);
-            assert.equal(factory.getName(client), clientData.CLIENT_NAME);
+            assert.equal(client.id, clientData.CLIENT_ID);
+            assert.equal(client.name, clientData.CLIENT_NAME);
         });
     });
 

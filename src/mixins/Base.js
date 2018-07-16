@@ -6,6 +6,7 @@ const base = {
         this.options.url = this.baseUri;
         this.options.method = 'GET';
         this.options.body = '';
+        this.options.json = true;
         return request(this.options, cb);
     },
 
@@ -17,6 +18,7 @@ const base = {
         }
         this.options.method = 'GET';
         this.options.body = '';
+        this.options.json = true;
 
         return request(this.options, cb);
     },
@@ -25,6 +27,8 @@ const base = {
         this.options.url = this.baseUri;
         this.options.method = 'POST';
         this.options.body = JSON.stringify(params);
+        this.options.json = false;
+
         return request(this.options, cb);
     },
 
@@ -32,6 +36,8 @@ const base = {
         this.options.url = this.baseUri + '/' + id;
         this.options.method = 'PATCH';
         this.options.body = JSON.stringify(params);
+        this.options.json = false;
+
         return request(this.options, cb);
    },
 
@@ -39,6 +45,8 @@ const base = {
         this.options.url = this.baseUri + '/' + id;
         this.options.method = 'DELETE';
         this.options.body = '';
+        this.options.json = false;
+
         return request(this.options, cb);
     }
 };

@@ -14,6 +14,8 @@ const listFilterBase = {
         this.options.url = this.baseUri + '/' + link.slice(0, -1);
         this.options.method = 'GET';
         this.options.body = '';
+        this.options.json = true;
+
         return request(this.options, cb);
     },
 
@@ -21,6 +23,8 @@ const listFilterBase = {
         this.options.url = this.baseUri + '/' + timeEntryID + '/restart';
         this.options.method = 'PATCH';
         this.options.body = '';
+        this.options.json = false;
+
         return request(this.options, cb);
     },
 
@@ -28,6 +32,8 @@ const listFilterBase = {
         this.options.url = this.baseUri + '/' + timeEntryID + '/stop';
         this.options.method = 'PATCH';
         this.options.body = '';
+        this.options.json = false;
+
         return request(this.options, cb);
     }
 };

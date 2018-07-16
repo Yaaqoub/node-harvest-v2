@@ -14,8 +14,7 @@ module.exports = class Harvest {
             method: '',
             headers: this.headerAuth.header(),
             body: '',
-            resolveWithFullResponse: false,
-            json: true
+            resolveWithFullResponse: false
         };
 
         fs.readdirSync(path.join(__dirname, 'api')).forEach(name => {
