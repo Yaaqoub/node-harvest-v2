@@ -4,11 +4,13 @@
 
 # Node Harvest API V2
 Harvest is a web-based time tracking tool. This package is a full client API built using node.js and the V2 of Harvest API.
+
 ## Install
     npm install harvest-v2
-## Usage
 
-### Authentication
+## Authentication
+
+### Header Authentication:
 
 ```js
 let Harvest = require('harvest-v2');
@@ -19,7 +21,55 @@ let harvest = new Harvest({
     });
 ```
 
-### Methods Example
+### OAuth2 Authentication (Server Side Applications):
+    Comming soon!
+
+### OAuth2 Authentication (Client Side Applications):
+These are typically applications that run entirely on the browser and issue Cross-Origin requests to Harvest API. For more details [click here](https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/#for-client-side-applications)<br/>
+First, before you begin with OAuth2 you need to setup OAuth2 Applications in [Harvest Developer Tools](https://id.getharvest.com/developers).
+After setting up the OAuth2 app, you will get a CLIENT ID that you will use to get Access Token.
+
+To get the URL that you will send to user to get his authorization:
+```js
+let Harvest = require('harvest-v2');
+let harvest = new Harvest({
+        CLIENT_ID: '...'
+    });
+
+console.log(harvest.getUserURL);
+```
+This accepts other parameters (STATE, REDIRECT_URI):
+- STATE (optional): used to pass any value that will get sent back to you when redirecting back to your application.
+- REDIRECT_URI (optional): the default Redirect URL can be further customized here if needed, but needs to start with the Redirect URL registered with your Application.
+```js
+let Harvest = require('harvest-v2');
+let harvest = new Harvest({
+        CLIENT_ID: '...',       //Required
+        STATE: '...',           //Optional
+        REDIRECT_URI: '...'     //Optional
+    });
+
+console.log(harvest.getUserURL);
+```
+After a successful authorization, user will be redirected back to the Redirect URL you specified when registering your OAuth2 application, or the redirect_uri you provided.
+Several parameters will be attached to URL, you will use these params to authenticate to harvest account:
+
+```js
+let Harvest = require('harvest-v2');
+let harvest = new Harvest({
+        access_token: '...',
+        scope: '...',
+        user_agent: '...'
+    });
+```
+
+e.g. If you are running Express.js server you can get params above using:
+```js
+let access_token = req.query.access_token;
+let scope = req.query.scope;
+```
+
+## Usage
 
 For example to get the Clients list:
 
