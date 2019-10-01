@@ -409,3 +409,12 @@ If you want to display available params for each harvest api click on it, or cli
         ```js
         harvest.userCostRates.list()
         ```
+        
+- [User Billable Rates](https://help.getharvest.com/api-v2/users-api/users/billable-rates/)
+    - `list(userID, callback)`
+    - `retrieve(userID, billableRateID, callback)`
+    - `create(userID, {params}, callback)`
+    - `Example: `
+        ```js
+        harvest.userBillableRates.list()
+        ```
