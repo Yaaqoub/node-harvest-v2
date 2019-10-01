@@ -1,6 +1,6 @@
 {
   "name": "@yaaqoub/harvest-v2",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,9 @@
     "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
   },
   "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "lodash": "^4.17.15",
     "request": "^2.88.0",
