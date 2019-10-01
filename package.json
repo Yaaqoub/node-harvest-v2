@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
