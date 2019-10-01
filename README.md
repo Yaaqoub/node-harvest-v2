@@ -400,3 +400,12 @@ If you want to display available params for each harvest api click on it, or cli
         ```js
         harvest.userProjectAssignments.list()
         ```
+
+- [User Cost Rates](https://help.getharvest.com/api-v2/users-api/users/cost-rates/)
+    - `list(userID, callback)`
+    - `retrieve(userID, costRateID, callback)`
+    - `create(userID, {params}, callback)`
+    - `Example: `
+        ```js
+        harvest.userCostRates.list()
+        ```
