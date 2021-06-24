@@ -13,7 +13,6 @@ const listFilterBase = {
 
         this.options.url = this.baseUri + '/' + link.slice(0, -1);
         this.options.method = 'GET';
-        this.options.body = '';
         this.options.json = true;
 
         return request(this.options, cb);
