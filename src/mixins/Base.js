@@ -5,7 +5,7 @@ const base = {
     list(cb) {
         this.options.url = this.baseUri;
         this.options.method = 'GET';
-        this.options.json = true;
+
         return request(this.options, cb);
     },
 
@@ -16,7 +16,6 @@ const base = {
             this.options.url = this.baseUri;
         }
         this.options.method = 'GET';
-        this.options.json = true;
 
         return request(this.options, cb);
     },
