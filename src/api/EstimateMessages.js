@@ -1,20 +1,20 @@
 const pick = require('lodash.pick');
 const fetch = require('node-fetch');
-const base2 = require('../mixins/Base2.js');
+const base2 = require('../mixins/Base2');
 const filterBase = require('../mixins/ListFilterBase');
 
-function Estimate_Messages(options) {
+function EstimateMessages(options) {
   this.name = 'messages';
   this.baseUri = 'https://api.harvestapp.com/v2/estimates/';
   this.options = options;
 }
 
-Object.assign(Estimate_Messages.prototype, pick(base2, ['list', 'create', 'delete']));
+Object.assign(EstimateMessages.prototype, pick(base2, ['list', 'create', 'delete']));
 
-Object.assign(Estimate_Messages.prototype, pick(filterBase, ['listBy']));
+Object.assign(EstimateMessages.prototype, pick(filterBase, ['listBy']));
 
-Estimate_Messages.prototype.mark = function (estimate_id, params, cb) {
-  this.options.url = `${this.baseUri}/${estimate_id}/${this.name}`;
+EstimateMessages.prototype.mark = (estimateId, params, cb) => {
+  this.options.url = `${this.baseUri}/${estimateId}/${this.name}`;
   this.options.method = 'POST';
   this.options.body = JSON.stringify(params);
 
@@ -23,4 +23,4 @@ Estimate_Messages.prototype.mark = function (estimate_id, params, cb) {
     .then(cb);
 };
 
-module.exports = Estimate_Messages;
+module.exports = EstimateMessages;

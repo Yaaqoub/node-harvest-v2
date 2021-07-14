@@ -1,25 +1,23 @@
-
 const fs = require('fs');
 const path = require('path');
-const camelCase = require('lodash.camelcase');
 const Auth = require('./authentication/Auth');
 
 module.exports = class Harvest {
   constructor(config) {
     if (config.CLIENT_ID) {
-      this._CLIENT_ID = config.CLIENT_ID;
+      this.CLIENT_ID = config.CLIENT_ID;
 
       if (config.STATE) {
-        this._STATE = config.STATE;
+        this.STATE = config.STATE;
       }
 
       if (config.REDIRECT_URI) {
-        this._REDIRECT_URI = config.REDIRECT_URI;
+        this.REDIRECT_URI = config.REDIRECT_URI;
       }
     } else if (config.scope || config.account_ID) {
       this.headerAuth = new Auth(config);
     } else {
-      console.log('There is something wrong with config');
+      console.warn('There is something wrong with config');
     }
 
     if (this.headerAuth) {
@@ -31,8 +29,8 @@ module.exports = class Harvest {
 
       fs.readdirSync(path.join(__dirname, 'api')).forEach((name) => {
         // Refacto this line
-        const prop = camelCase(name.slice(0, -3));
-        const Resource = require(`./api/${name}`);
+        const prop = name.slice(0, -3);
+        const Resource = require(`./api/${name}`); // eslint-disable-line
 
         this[prop] = new (Resource)(this.options);
       });
@@ -40,14 +38,14 @@ module.exports = class Harvest {
   }
 
   get getUserURL() {
-    let urlString = `https://id.getharvest.com/oauth2/authorize?client_id=${this._CLIENT_ID}&response_type=token`;
+    let urlString = `https://id.getharvest.com/oauth2/authorize?client_id=${this.CLIENT_ID}&response_type=token`;
 
-    if (this._STATE) {
-      urlString += `&state=${this._STATE}`;
+    if (this.STATE) {
+      urlString += `&state=${this.STATE}`;
     }
 
-    if (this._REDIRECT_URI) {
-      urlString += `&redirect_uri=${this._REDIRECT_URI}`;
+    if (this.REDIRECT_URI) {
+      urlString += `&redirect_uri=${this.REDIRECT_URI}`;
     }
     return urlString;
   }

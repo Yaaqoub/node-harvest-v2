@@ -2,14 +2,14 @@ const pick = require('lodash.pick');
 const base = require('../mixins/Base');
 const filterBase = require('../mixins/ListFilterBase');
 
-function ClientContacts(options) {
-  this.name = 'contacts';
+function TimeEntries(options) {
+  this.name = 'time_entries';
   this.baseUri = `https://api.harvestapp.com/v2/${this.name}`;
   this.options = options;
 }
 
-Object.assign(ClientContacts.prototype, base);
+Object.assign(TimeEntries.prototype, base);
 
-Object.assign(ClientContacts.prototype, pick(filterBase, ['listBy']));
+Object.assign(TimeEntries.prototype, pick(filterBase, ['listBy', 'restart', 'stop']));
 
-module.exports = ClientContacts;
+module.exports = TimeEntries;

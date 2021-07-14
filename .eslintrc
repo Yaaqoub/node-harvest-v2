@@ -14,6 +14,7 @@
     "es6": true,
     "node": true,
     "browser": false,
+    "mocha": true
   },
   // Do NOT change these rules
   "rules": {

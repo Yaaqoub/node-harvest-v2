@@ -1,5 +1,5 @@
 const pick = require('lodash.pick');
-const base = require('../mixins/Base.js');
+const base = require('../mixins/Base');
 const filterBase = require('../mixins/ListFilterBase');
 
 function Estimates(options) {

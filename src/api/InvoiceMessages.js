@@ -1,20 +1,20 @@
 const pick = require('lodash.pick');
 const fetch = require('node-fetch');
-const base = require('../mixins/Base2.js');
+const base = require('../mixins/Base2');
 const filterBase = require('../mixins/ListFilterBase');
 
-function Invoice_Messages(options) {
+function InvoiceMessages(options) {
   this.name = 'messages';
   this.baseUri = 'https://api.harvestapp.com/v2/invoices/';
   this.options = options;
 }
 
-Object.assign(Invoice_Messages.prototype, pick(base, ['list', 'create', 'delete']));
+Object.assign(InvoiceMessages.prototype, pick(base, ['list', 'create', 'delete']));
 
-Object.assign(Invoice_Messages.prototype, pick(filterBase, ['listBy']));
+Object.assign(InvoiceMessages.prototype, pick(filterBase, ['listBy']));
 
-Invoice_Messages.prototype.mark = function (invoice_id, params, cb) {
-  this.options.url = `${this.baseUri + invoice_id}/${this.name}`;
+InvoiceMessages.prototype.mark = (invoiceId, params, cb) => {
+  this.options.url = `${this.baseUri + invoiceId}/${this.name}`;
   this.options.method = 'POST';
   this.options.body = JSON.stringify(params);
 
@@ -23,4 +23,4 @@ Invoice_Messages.prototype.mark = function (invoice_id, params, cb) {
     .then(cb);
 };
 
-module.exports = Invoice_Messages;
+module.exports = InvoiceMessages;

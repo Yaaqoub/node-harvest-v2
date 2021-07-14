@@ -1,6 +1,6 @@
 {
   "name": "harvest-v2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,6 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "lodash.camelcase": "^4.3.0",
     "lodash.pick": "^4.4.0",
     "node-fetch": "^2.6.1"
   },
