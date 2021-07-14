@@ -28,7 +28,7 @@ module.exports = class Harvest {
       };
 
       fs.readdirSync(path.join(__dirname, 'api')).forEach((name) => {
-        // Refacto this line
+        // Refactor this line
         const prop = name.slice(0, -3);
         const Resource = require(`./api/${name}`); // eslint-disable-line
 
