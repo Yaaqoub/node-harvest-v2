@@ -1,16 +1,15 @@
 {
   "name": "harvest-v2",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "cover": "istanbul cover --report html ./node_modules/mocha/bin/_mocha -- -R spec"
+    "test": "mocha test/*.js -r dotenv/config",
     "lint": "eslint -c .eslintrc --ext .js ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yaaqoub/node-harvest-v2.git"
+    "url": "git+https://github.com/benpbolton/node-harvest-v2.git"
   },
   "keywords": [
     "harvest",
@@ -30,32 +29,35 @@
     {
       "name": "Chakib Bouabd",
       "email": "chakib.bouabd@gmail.com"
+    },
+    {
+      "name": "Ben Bolton",
+      "github": "benpbolton"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
+    "url": "https://github.com/benpbolton/node-harvest-v2/issues"
   },
-  "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
+  "homepage": "https://github.com/benpbolton/node-harvest-v2#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "lodash.camelcase": "^4.3.0",
+    "lodash.pick": "^4.4.0",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.6",
     "debug": "^3.2.6",
     "dotenv": "^8.1.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.2.1",
     "eslint": "^7.30.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
+    "mocha": "^9.0.2",
     "mocha-lcov-reporter": "^1.3.0"
   }
 }

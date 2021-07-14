@@ -1,12 +1,11 @@
-let base = require('../mixins/Base2.js'),
-    filterBase = require('../mixins/ListFilterBase');
-
-let pick = require('lodash/pick.js');
+const pick = require('lodash.pick');
+const base = require('../mixins/Base2.js');
+const filterBase = require('../mixins/ListFilterBase');
 
 function User_Project_Assignments(options) {
-    this.name = 'project_assignments';
-    this.baseUri = 'https://api.harvestapp.com/v2/users/';
-    this.options = options;
+  this.name = 'project_assignments';
+  this.baseUri = 'https://api.harvestapp.com/v2/users/';
+  this.options = options;
 }
 
 Object.assign(User_Project_Assignments.prototype, pick(base, ['list']));

@@ -1,11 +1,11 @@
-let base = require('../mixins/Base.js'),
-    filterBase = require('../mixins/ListFilterBase'),
-    pick = require('lodash/pick.js');
+const pick = require('lodash.pick');
+const base = require('../mixins/Base.js');
+const filterBase = require('../mixins/ListFilterBase');
 
 function Expense_Categories(options) {
-    this.name = 'expense_categories';
-    this.baseUri = 'https://api.harvestapp.com/v2/' + this.name;
-    this.options = options;
+  this.name = 'expense_categories';
+  this.baseUri = `https://api.harvestapp.com/v2/${this.name}`;
+  this.options = options;
 }
 
 Object.assign(Expense_Categories.prototype, base);
