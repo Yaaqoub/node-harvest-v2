@@ -14,7 +14,6 @@ const listFilterBase = {
 
     this.options.url = `${this.baseUri}/${link.slice(0, -1)}`;
     this.options.method = 'GET';
-    console.log('listby');
 
     return fetch(this.options.url, this.options)
       .then((res) => res.json())

@@ -30,7 +30,6 @@ describe('Clients API', () => {
       });
 
       clientData.CLIENT_ID = factory.getID(client);
-      console.log(client.id);
       assert.equal(typeof clientData.CLIENT_ID, 'number', 'The response body should contain a id');
     });
   });

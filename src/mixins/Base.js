@@ -5,7 +5,6 @@ const base = {
   list(cb) {
     this.options.url = this.baseUri;
     this.options.method = 'GET';
-    console.log('base2 list');
     return fetch(this.options.url, this.options)
       .then((res) => res.json())
       .then(cb);
