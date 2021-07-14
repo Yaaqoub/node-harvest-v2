@@ -12,28 +12,28 @@ const listFilterBase = {
       }
     }
 
-    this.options.url = `${this.baseUri}/${link.slice(0, -1)}`;
-    this.options.method = 'GET';
+    const url = `${this.baseUri}/${link.slice(0, -1)}`;
+    const method = 'GET';
 
-    return fetch(this.options.url, this.options)
+    return fetch(url, { ...this.options, method })
       .then((res) => res.json())
       .then(cb);
   },
 
   restart(timeEntryID, cb) {
-    this.options.url = `${this.baseUri}/${timeEntryID}/restart`;
-    this.options.method = 'PATCH';
+    const url = `${this.baseUri}/${timeEntryID}/restart`;
+    const method = 'PATCH';
 
-    return fetch(this.options.url, this.options)
+    return fetch(url, { ...this.options, method })
       .then((res) => res.json())
       .then(cb);
   },
 
   stop(timeEntryID, cb) {
-    this.options.url = `${this.baseUri}/${timeEntryID}/stop`;
-    this.options.method = 'PATCH';
+    const url = `${this.baseUri}/${timeEntryID}/stop`;
+    const method = 'PATCH';
 
-    return fetch(this.options.url, this.options)
+    return fetch(url, { ...this.options, method })
       .then((res) => res.json())
       .then(cb);
   },

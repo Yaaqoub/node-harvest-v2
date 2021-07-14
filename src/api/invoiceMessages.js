@@ -14,11 +14,11 @@ Object.assign(InvoiceMessages.prototype, pick(base, ['list', 'create', 'delete']
 Object.assign(InvoiceMessages.prototype, pick(filterBase, ['listBy']));
 
 InvoiceMessages.prototype.mark = (invoiceId, params, cb) => {
-  this.options.url = `${this.baseUri + invoiceId}/${this.name}`;
-  this.options.method = 'POST';
-  this.options.body = JSON.stringify(params);
+  const url = `${this.baseUri + invoiceId}/${this.name}`;
+  const method = 'POST';
+  const body = JSON.stringify(params);
 
-  return fetch(this.options.url, this.options)
+  return fetch(url, { method, body })
     .then((res) => res.json())
     .then(cb);
 };

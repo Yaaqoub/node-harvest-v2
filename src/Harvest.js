@@ -22,8 +22,6 @@ module.exports = class Harvest {
 
     if (this.headerAuth) {
       this.options = {
-        url: '',
-        method: '',
         headers: this.headerAuth.header(),
       };
 

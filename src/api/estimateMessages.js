@@ -14,11 +14,11 @@ Object.assign(EstimateMessages.prototype, pick(base2, ['list', 'create', 'delete
 Object.assign(EstimateMessages.prototype, pick(filterBase, ['listBy']));
 
 EstimateMessages.prototype.mark = (estimateId, params, cb) => {
-  this.options.url = `${this.baseUri}/${estimateId}/${this.name}`;
-  this.options.method = 'POST';
-  this.options.body = JSON.stringify(params);
+  const url = `${this.baseUri}/${estimateId}/${this.name}`;
+  const method = 'POST';
+  const body = JSON.stringify(params);
 
-  return fetch(this.options.url, this.options)
+  return fetch(url, { ...this.options, method, body })
     .then((res) => res.json())
     .then(cb);
 };
