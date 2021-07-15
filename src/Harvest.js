@@ -1,59 +1,50 @@
-'use strict';
-
-let Auth = require('./authentication/Auth'),
-    fs = require('fs'),
-    path = require('path'),
-    camelCase = require('lodash/camelCase');
+const fs = require('fs');
+const path = require('path');
+const Auth = require('./authentication/Auth');
 
 module.exports = class Harvest {
-    constructor(config) {
-        if (config.CLIENT_ID) {
-            this._CLIENT_ID = config.CLIENT_ID;
+  constructor(config) {
+    if (config.CLIENT_ID) {
+      this.CLIENT_ID = config.CLIENT_ID;
 
-            if (config.STATE) {
-                this._STATE = config.STATE;
-            }
+      if (config.STATE) {
+        this.STATE = config.STATE;
+      }
 
-            if (config.REDIRECT_URI) {
-                this._REDIRECT_URI = config.REDIRECT_URI;
-            }
-
-        } else if(config.scope || config.account_ID) {
-            this.headerAuth = new Auth(config);
-
-        } else {
-            console.log('There is something wrong with config');
-        }
-
-        if (this.headerAuth) {
-            this.options = {
-                url: '',
-                method: '',
-                headers: this.headerAuth.header(),
-                body: '',
-                resolveWithFullResponse: false
-            };
-
-            fs.readdirSync(path.join(__dirname, 'api')).forEach(name => {
-                // Refacto this line
-                let prop = camelCase(name.slice(0, -3));
-                let Resource = require(`./api/${name}`);
-
-                this[prop] = new(Resource)(this.options);
-            });
-        }
+      if (config.REDIRECT_URI) {
+        this.REDIRECT_URI = config.REDIRECT_URI;
+      }
+    } else if (config.scope || config.account_ID) {
+      this.headerAuth = new Auth(config);
+    } else {
+      console.warn('There is something wrong with config');
     }
 
-    get getUserURL() {
-        let urlString = 'https://id.getharvest.com/oauth2/authorize?client_id=' + this._CLIENT_ID + '&response_type=token';
+    if (this.headerAuth) {
+      this.options = {
+        headers: this.headerAuth.header(),
+      };
 
-        if (this._STATE) {
-            urlString += '&state=' + this._STATE;
-        }
+      fs.readdirSync(path.join(__dirname, 'api')).forEach((name) => {
+        // Refactor this line
+        const prop = name.slice(0, -3);
+        const Resource = require(`./api/${name}`); // eslint-disable-line
 
-        if (this._REDIRECT_URI) {
-            urlString += '&redirect_uri=' + this._REDIRECT_URI;
-        }
-        return urlString;
+        this[prop] = new (Resource)(this.options);
+      });
     }
+  }
+
+  get getUserURL() {
+    let urlString = `https://id.getharvest.com/oauth2/authorize?client_id=${this.CLIENT_ID}&response_type=token`;
+
+    if (this.STATE) {
+      urlString += `&state=${this.STATE}`;
+    }
+
+    if (this.REDIRECT_URI) {
+      urlString += `&redirect_uri=${this.REDIRECT_URI}`;
+    }
+    return urlString;
+  }
 };

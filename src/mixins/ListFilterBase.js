@@ -1,41 +1,42 @@
-let request = require('request-promise');
+const fetch = require('node-fetch');
+
 const listParams = ['user_id', 'client_id', 'project_id', 'is_billed', 'is_running', 'updated_since', 'from', 'to', 'page', 'per_page', 'is_active'];
 
 const listFilterBase = {
 
-    listBy(params, cb) {
-        let link = "?";
-        for (let datax in params) {
-            if (listParams.indexOf(datax) !== -1) {
-                link = link + datax + '=' + params[datax] + '&';
-            }
-        }
-
-        this.options.url = this.baseUri + '/' + link.slice(0, -1);
-        this.options.method = 'GET';
-        this.options.body = '';
-        this.options.json = true;
-
-        return request(this.options, cb);
-    },
-
-    restart(timeEntryID, cb) {
-        this.options.url = this.baseUri + '/' + timeEntryID + '/restart';
-        this.options.method = 'PATCH';
-        this.options.body = '';
-        this.options.json = false;
-
-        return request(this.options, cb);
-    },
-
-    stop(timeEntryID, cb) {
-        this.options.url = this.baseUri + '/' + timeEntryID + '/stop';
-        this.options.method = 'PATCH';
-        this.options.body = '';
-        this.options.json = false;
-
-        return request(this.options, cb);
+  listBy(params, cb) {
+    let link = '?';
+    for (const datax in params) {
+      if (-1 !== listParams.indexOf(datax)) {
+        link = `${link + datax}=${params[datax]}&`;
+      }
     }
+
+    const url = `${this.baseUri}/${link.slice(0, -1)}`;
+    const method = 'GET';
+
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
+
+  restart(timeEntryID, cb) {
+    const url = `${this.baseUri}/${timeEntryID}/restart`;
+    const method = 'PATCH';
+
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
+
+  stop(timeEntryID, cb) {
+    const url = `${this.baseUri}/${timeEntryID}/stop`;
+    const method = 'PATCH';
+
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
 };
 
 module.exports = listFilterBase;

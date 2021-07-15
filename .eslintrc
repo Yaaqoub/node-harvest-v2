@@ -1,0 +1,68 @@
+{
+  // Extend the AirBnb lint config
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+  },
+  "settings": {
+    "react": {
+     "version": "999.9999" // We don't use react. Need this to pacify eslint-plugin-react via airbnb
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": false,
+    "mocha": true
+  },
+  // Do NOT change these rules
+  "rules": {
+    "array-bracket-spacing": [2, "never"],
+    "arrow-parens": ["error", "always"],
+    "class-methods-use-this": [0],
+    "comma-dangle": [2, "always-multiline"],
+    "dot-location": [2, "property"],
+    "func-names": [1, "always"],  // This aids in debugging
+    "id-length": ["error", {
+      "properties": "never",
+      "exceptions": ["x", "y", "i", "e", "n", "k"]
+    }],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "jsx-a11y/anchor-is-valid": [ "error", {"components": [ "Link" ], "specialLink": [ "to" ]}],
+    "jsx-a11y/label-has-for": [ 2, {
+        "components": [],
+        "required": {
+            "every": [ "nesting", "id" ]
+        },
+        "allowChildren": true
+    }],
+    "keyword-spacing": ["error", {"after": true}],
+    "max-len": [2, 80, 4, {
+      "ignoreComments": true,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "no-bitwise": [2],
+    "no-confusing-arrow": ["error", {"allowParens": true}], // See eslint config for reasons
+    "no-console": ["warn", {allow: ["debug", "warn", "error"]}],
+    "no-constant-condition": ["error"],
+    "no-multiple-empty-lines": [2, {"max": 1}],
+    "no-restricted-syntax": ["error"],
+    "no-use-before-define": [2, "nofunc"],
+    "no-var": [2], // Stop using var, use const or let instead
+    "object-curly-spacing": [2, "always"],
+    "one-var": [2, "never"],
+    "operator-linebreak": ["error", "after"],
+    "prefer-const": ["error"],
+    "prefer-destructuring": ["error", "VariableDeclarator": {"array": false, "object": false}],
+    "quotes": [2, "single"], // Allows template literals if they have substitutions or line breaks
+    "semi": [2, "always"],
+    "space-before-blocks": [2, "always"],
+    "space-in-parens": [2, "never"],
+    "space-unary-ops": [2, {"words": true, "nonwords": false, "overrides": {"!": true}}],
+    "spaced-comment": [2, "always"],
+    "yoda": [2, "always"]
+  }
+}
