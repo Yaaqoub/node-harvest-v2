@@ -1,6 +1,6 @@
 {
   "name": "harvest-v2",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Harvest API v2 library",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benpbolton/node-harvest-v2.git"
+    "url": "git+https://github.com/Yaaqoub/node-harvest-v2.git"
   },
   "keywords": [
     "harvest",
@@ -37,9 +37,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benpbolton/node-harvest-v2/issues"
+    "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
   },
-  "homepage": "https://github.com/benpbolton/node-harvest-v2#readme",
+  "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
