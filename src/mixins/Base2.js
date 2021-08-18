@@ -1,51 +1,53 @@
-let request = require('request-promise');
+const fetch = require('node-fetch');
 
 const base2 = {
 
-    list(id, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name;
-        this.options.method = 'GET';
-        this.options.body = '';
-        this.options.json = true;
+  list(id, cb) {
+    const url = `${this.baseUri + id}/${this.name}`;
+    const method = 'GET';
 
-        return request(this.options, cb);
-    },
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
 
-    retrieve(id, otherId, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
-        this.options.method = 'GET';
-        this.options.body = '';
-        this.options.json = true;
+  retrieve(id, otherId, cb) {
+    const url = `${this.baseUri + id}/${this.name}/${otherId}`;
+    const method = 'GET';
 
-        return request(this.options, cb);
-    },
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
 
-    create(id, params, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name;
-        this.options.method = 'POST';
-        this.options.body = JSON.stringify(params);
-        this.options.json = false;
+  create(id, params, cb) {
+    const url = `${this.baseUri + id}/${this.name}`;
+    const method = 'POST';
+    const body = JSON.stringify(params);
 
-        return request(this.options, cb);
-    },
+    return fetch(url, { ...this.options, method, body })
+      .then((res) => res.json())
+      .then(cb);
+  },
 
-    update(id, otherId, params, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
-        this.options.method = 'PATCH';
-        this.options.body = JSON.stringify(params);
-        this.options.json = false;
+  update(id, otherId, params, cb) {
+    const url = `${this.baseUri + id}/${this.name}/${otherId}`;
+    const method = 'PATCH';
+    const body = JSON.stringify(params);
 
-        return request(this.options, cb);
-    },
+    return fetch(url, { ...this.options, method, body })
+      .then((res) => res.json())
+      .then(cb);
+  },
 
-    delete(id, otherId, cb) {
-        this.options.url = this.baseUri + id + '/' + this.name + '/' + otherId;
-        this.options.method = 'DELETE';
-        this.options.body = '';
-        this.options.json = false;
+  delete(id, otherId, cb) {
+    const url = `${this.baseUri + id}/${this.name}/${otherId}`;
+    const method = 'DELETE';
 
-        return request(this.options, cb);
-    }
+    return fetch(url, { ...this.options, method })
+      .then((res) => res.json())
+      .then(cb);
+  },
 };
 
 module.exports = base2;

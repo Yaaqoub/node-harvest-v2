@@ -1,46 +1,46 @@
-let assert = require('assert'),
-    config_auth = require('./config.auth');
+const assert = require('assert');
+const configAuth = require('./config.auth');
 
-let harvest = config_auth.harvest;
+const harvest = configAuth.harvest;
 
-describe('Tasks API', function() {
-    describe('List all tasks', function() {
-        it('should implement List all tasks method', (done) => {
-            assert.equal(typeof harvest.tasks.list, 'function');
-            done();
-        });
-
-        it('should implement ListBy tasks method', (done) => {
-            assert.equal(typeof harvest.tasks.listBy, 'function');
-            done();
-        });
+describe('Tasks API', () => {
+  describe('List all tasks', () => {
+    it('should implement List all tasks method', (done) => {
+      assert.equal(typeof harvest.tasks.list, 'function');
+      done();
     });
 
-    describe('Retrieve a tasks', function() {
-        it('should implement Retrieve a tasks method', (done) => {
-            assert.equal(typeof harvest.tasks.retrieve, 'function');
-            done();
-        });
+    it('should implement ListBy tasks method', (done) => {
+      assert.equal(typeof harvest.tasks.listBy, 'function');
+      done();
     });
+  });
 
-    describe('Create a task', function() {
-        it('should implement Create a task method', (done) => {
-            assert.equal(typeof harvest.tasks.create, 'function');
-            done();
-        });
+  describe('Retrieve a tasks', () => {
+    it('should implement Retrieve a tasks method', (done) => {
+      assert.equal(typeof harvest.tasks.retrieve, 'function');
+      done();
     });
+  });
 
-    describe('Update a task', function() {
-        it('should implement Update a task method', (done) => {
-            assert.equal(typeof harvest.tasks.update, 'function');
-            done();
-        });
+  describe('Create a task', () => {
+    it('should implement Create a task method', (done) => {
+      assert.equal(typeof harvest.tasks.create, 'function');
+      done();
     });
+  });
 
-    describe('Delete a task', function() {
-        it('should implement Delete a task method', (done) => {
-            assert.equal(typeof harvest.tasks.delete, 'function');
-            done();
-        });
+  describe('Update a task', () => {
+    it('should implement Update a task method', (done) => {
+      assert.equal(typeof harvest.tasks.update, 'function');
+      done();
     });
+  });
+
+  describe('Delete a task', () => {
+    it('should implement Delete a task method', (done) => {
+      assert.equal(typeof harvest.tasks.delete, 'function');
+      done();
+    });
+  });
 });
