@@ -40,9 +40,6 @@
     "url": "https://github.com/Yaaqoub/node-harvest-v2/issues"
   },
   "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "dependencies": {
     "lodash.pick": "^4.4.0",
     "node-fetch": "^2.6.1"
