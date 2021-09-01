@@ -4,7 +4,7 @@ const filterBase = require('../mixins/ListFilterBase');
 
 function ProjectTaskAssignments(options) {
   this.name = 'task_assignments';
-  this.baseUri = 'https://api.harvestapp.com/v2/projects/';
+  this.baseUri = `https://api.harvestapp.com/v2/${this.name}/`;
   this.options = options;
 }
 
