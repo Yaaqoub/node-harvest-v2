@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const listParams = ['user_id', 'client_id', 'project_id', 'is_billed', 'is_running', 'updated_since', 'from', 'to', 'page', 'per_page', 'is_active'];
+const listParams = ['user_id', 'client_id', 'project_id', 'is_billed', 'is_running', 'updated_since', 'from', 'to', 'page', 'per_page', 'is_active', 'external_reference_id'];
 
 const listFilterBase = {
 
