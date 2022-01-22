@@ -42,7 +42,7 @@
   "homepage": "https://github.com/Yaaqoub/node-harvest-v2#readme",
   "dependencies": {
     "lodash.pick": "^4.4.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.1.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.6",
